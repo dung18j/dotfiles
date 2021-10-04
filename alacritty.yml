@@ -425,7 +425,7 @@ shell:
     - -u
     - new
     - -As
-    - workspace
+    - tmux
 
 # Startup directory
 #
