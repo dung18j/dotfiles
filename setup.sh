@@ -1,5 +1,5 @@
 # Install packages
-sudo pacman -S alacritty tmux fish neovim
+sudo pacman -S alacritty tmux fish neovim exa bat
 
 # fish
 mkdir ~/.config/fish
