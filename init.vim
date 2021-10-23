@@ -43,6 +43,10 @@ Plug 'cespare/vim-toml', { 'branch': 'main' }
 Plug 'glepnir/lspsaga.nvim'
 
 Plug 'rust-lang/rust.vim'
+
+Plug 'ellisonleao/glow.nvim'
+
+
 call plug#end()
 let g:rustfmt_autosave = 1
 nnoremap L l
@@ -269,8 +273,6 @@ require'nvim-tree'.setup {
   hijack_cursor       = false,
   -- updates the root directory of the tree on `DirChanged` (when your run `:cd` usually)
   update_cwd          = false,
-  -- show lsp diagnostics in the signcolumn
-  lsp_diagnostics     = false,
   -- update the focused file on `BufEnter`, un-collapses the folders recursively until it finds the file
   update_focused_file = {
     -- enables the feature
