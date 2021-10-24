@@ -35,6 +35,7 @@ Plug 'mfussenegger/nvim-dap'
 
 " Color scheme used in the GIFs!
 Plug 'arcticicestudio/nord-vim'
+
 " requires
 Plug 'kyazdani42/nvim-web-devicons' " for file icons
 Plug 'kyazdani42/nvim-tree.lua'
@@ -53,6 +54,8 @@ nnoremap L l
 nnoremap H h
 nnoremap l w
 nnoremap h b
+set ignorecase
+set smartcase
 
 autocmd BufReadPost * if @% !~# '\.git[\/\\]COMMIT_EDITMSG$' && line("'\"") > 1 && line("'\"") <= line("$") | exe "normal! g`\"" | endif
 
