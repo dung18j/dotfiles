@@ -15,6 +15,13 @@ set smartcase
 autocmd BufReadPost * if @% !~# '\.git[\/\\]COMMIT_EDITMSG$' && line("'\"") > 1 && line("'\"") <= line("$") | exe "normal! g`\"" | endif
 
 set completeopt=menuone,noinsert,noselect
+ 
+" Avoid showing extra messages when using completion
+set shortmess+=c       
+
+" Open netrw
+nnoremap <C-n> :Explore<CR>
+let g:netrw_banner = 0
 
 syntax on
 nnoremap L l
@@ -140,6 +147,7 @@ set signcolumn=yes
 	rust-vim
 	glow-nvim
 	nord-vim
+	vim-nix
       ];
       # manually loadable by calling `:packadd $plugin-name`
       opt = [ ];
