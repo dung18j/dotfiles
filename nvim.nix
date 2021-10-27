@@ -23,6 +23,9 @@ set shortmess+=c
 nnoremap <C-n> :Explore<CR>
 let g:netrw_banner = 0
 
+" Disable q:
+nnoremap q: <nop>
+        
 syntax on
 nnoremap L l
 nnoremap H h
