@@ -6,4 +6,5 @@
     extraGroups = [ "wheel" "networkmanager" "audio" ];
     shell = pkgs.fish;
   };
+  services.udev.packages = [ pkgs.stlink ];
 }

@@ -9,6 +9,7 @@
     rustup
     rust-analyzer
     wget
+    htop
     firefox
     alacritty
     tmux
@@ -16,5 +17,15 @@
     dropbox
     exa
     bat
+    wpsoffice
+    cargo-edit
+    cargo-embed
+    trunk
+    sqlx-cli
+    probe-run
+    gcc
+    gcc-arm-embedded
+    rnix-lsp
+    sumneko-lua-language-server
   ];
 }
