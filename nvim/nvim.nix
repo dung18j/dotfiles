@@ -6,9 +6,13 @@
       url = https://github.com/nix-community/neovim-nightly-overlay/archive/master.tar.gz;
     }))
   ];
-
+  
+  environment.variables.EDITOR = "nvim";
+  
   environment.systemPackages = with pkgs; [
     (neovim.override {
+      viAlias = true;
+      vimAlias = true;
       configure = {
         customRC = ''
             luafile /home/dungph/.dotfiles/nvim/settings.lua
