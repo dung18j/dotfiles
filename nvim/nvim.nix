@@ -1,42 +1,58 @@
 { pkgs, ... }:
 {
-  # Enable neovim (default editor)
-  programs.neovim = {
-    enable = true;
-    viAlias = true;
-    vimAlias = true;
-    defaultEditor = true;
-    configure = {
-      customRC = ''
-          luafile /home/dungph/.dotfiles/nvim/settings.lua
-      '';
-      packages.myVimPackage = with pkgs.vimPlugins; {
-        # loaded on launch
-        start = [ 
-          nvim-cmp
-          indentLine
-          vim-nix
-          nvim-lspconfig
-          cmp-nvim-lsp
-          cmp-vsnip
-          cmp-path
-          cmp-buffer
-          rust-tools-nvim
-          popup-nvim
-          plenary-nvim
-          telescope-nvim
-          nvim-dap
-          lspsaga-nvim
-          rust-vim
-          glow-nvim
-          nord-vim
-          nvim-treesitter
-          nvim-web-devicons 
-          nvim-tree-lua
-        ];
-        # manually loadable by calling `:packadd $plugin-name`
-        opt = [ ];
+
+  nixpkgs.overlays = [
+    (import (builtins.fetchTarball {
+      url = https://github.com/nix-community/neovim-nightly-overlay/archive/master.tar.gz;
+    }))
+  ];
+
+  environment.systemPackages = with pkgs; [
+    (neovim.override {
+      configure = {
+        customRC = ''
+            luafile /home/dungph/.dotfiles/nvim/settings.lua
+        '';
+        packages.myVimPackage = with pkgs.vimPlugins; {
+          # loaded on launch
+          start = [ 
+            # ident vertical line
+            indentLine
+
+            # auto complete
+            nvim-cmp
+            cmp-nvim-lsp
+            cmp-path
+            cmp-buffer
+            cmp-vsnip
+            vim-vsnip
+
+            # Lsp stuff
+            vim-nix
+            nvim-lspconfig
+            rust-tools-nvim
+            popup-nvim
+            plenary-nvim
+            telescope-nvim
+            nvim-dap
+            lspsaga-nvim
+            rust-vim
+
+            # color
+            nord-vim
+            nvim-treesitter
+
+            # nvim tree
+            nvim-web-devicons 
+            nvim-tree-lua
+
+            # markdown preview
+            glow-nvim
+          ];
+          # manually loadable by calling `:packadd $plugin-name`
+          opt = [ ];
+        };
       };
-    };
-  };
+    })
+  ];
 }
