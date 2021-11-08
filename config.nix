@@ -6,7 +6,6 @@
 
 {
 
-  
   # Use the systemd-boot EFI boot loader.
   boot.loader.systemd-boot.enable = true;
   boot.loader.efi.canTouchEfiVariables = true;
@@ -31,14 +30,14 @@
       url = https://github.com/nix-community/neovim-nightly-overlay/archive/master.tar.gz;
     }))
   ];
- 
-   # Enable the OpenSSH daemon.
+
+  # Enable the OpenSSH daemon.
   services.openssh.enable = true;
 
   # inputMethod
   i18n.inputMethod.enabled = "ibus";
   i18n.inputMethod.ibus.engines = with pkgs.ibus-engines; [ bamboo ];
-  
+
   # Select internationalisation properties.
   i18n.defaultLocale = "en_US.UTF-8";
   console = {
@@ -48,7 +47,7 @@
 
   # Set your time zone.
   time.timeZone = "Asia/Ho_Chi_Minh";
-  
+
   # Enable sound.
   sound.enable = true;
   hardware.pulseaudio.enable = true;
@@ -69,7 +68,7 @@
     la = "exa -a";
     cat = "bat";
   };
-  
+
   # Enable the X11 windowing system.
   services.xserver.enable = true;
 
@@ -77,7 +76,7 @@
   services.xserver.displayManager.gdm.enable = true;
   services.xserver.desktopManager.gnome.enable = true;
 
-  environment.gnome.excludePackages = [ 
+  environment.gnome.excludePackages = [
     pkgs.gnome.cheese
     pkgs.gnome.gnome-music
     pkgs.gnome.gnome-terminal
@@ -121,7 +120,7 @@
     gcc
     gcc-arm-embedded
 
-    # Other langs 
+    # Other langs
     clang-tools
     rnix-lsp
     sumneko-lua-language-server
@@ -131,7 +130,7 @@
     # markdown preview
     glow
 
-    # env 
+    # env
     alacritty
     tmux
     git
@@ -147,6 +146,7 @@
     transmission
     gimp
     obs-studio
+    vlc
 
     # Neovim
     (neovim.override {
@@ -158,7 +158,7 @@
         '';
         packages.myVimPackage = with pkgs.vimPlugins; {
           # loaded on launch
-          start = [ 
+          start = [
             # ident vertical line
             indentLine
 
@@ -186,7 +186,7 @@
             nvim-treesitter
 
             # nvim tree
-            nvim-web-devicons 
+            nvim-web-devicons
             nvim-tree-lua
 
             # markdown preview
