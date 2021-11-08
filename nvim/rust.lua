@@ -29,4 +29,4 @@ local opts = {
 }
 
 require('rust-tools').setup(opts)
-
+vim.g.rustfmt_autosave = true
