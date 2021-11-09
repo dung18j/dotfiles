@@ -5,10 +5,12 @@ require'lspsaga'.init_lsp_saga()
 require'lspconfig'.rnix.setup{}
 -- require'lspconfig'.sumneko_lua.setup{}
 
-require'lspconfig'.java_language_server.setup {
-    cmd = { '/nix/store/wcm1lh8syx6b4xsz6ic41wgwhwm7szj3-java-language-server-0.2.38/share/java/java-language-server/lang_server_linux.sh' };
-    root_dir= require'lspconfig/util'.path.dirname,
-}
+--require'lspconfig'.java_language_server.setup {
+--    cmd = { '/nix/store/wcm1lh8syx6b4xsz6ic41wgwhwm7szj3-java-language-server-0.2.38/share/java/java-language-server/lang_server_linux.sh' };
+--    root_dir= require'lspconfig/util'.path.dirname,
+--}
+
+require'lspconfig'.jdtls.setup{}
 
 local map = vim.api.nvim_set_keymap
 

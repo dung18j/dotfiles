@@ -21,16 +21,6 @@
   networking.interfaces.enp4s0.useDHCP = true;
   networking.interfaces.wlp5s0.useDHCP = true;
 
-  # Default editor
-  environment.variables.EDITOR = "nvim";
-
-  # neovim-nightly-overlay
-  nixpkgs.overlays = [
-    (import (builtins.fetchTarball {
-      url = https://github.com/nix-community/neovim-nightly-overlay/archive/master.tar.gz;
-    }))
-  ];
-
   # Enable the OpenSSH daemon.
   services.openssh.enable = true;
 
@@ -124,7 +114,6 @@
     clang-tools
     rnix-lsp
     sumneko-lua-language-server
-    java-language-server
     jdk11
 
     # markdown preview
@@ -147,57 +136,64 @@
     gimp
     obs-studio
     vlc
+    teams
+    eclipses.eclipse-java
+  ];
+  
+  environment.variables.JDTLS_HOME = "/home/dungph/.jdt";
 
     # Neovim
-    (neovim.override {
-      viAlias = true;
-      vimAlias = true;
-      configure = {
-        customRC = ''
-            luafile /home/dungph/.dotfiles/nvim/settings.lua
-        '';
-        packages.myVimPackage = with pkgs.vimPlugins; {
-          # loaded on launch
-          start = [
-            # ident vertical line
-            indentLine
+  programs.neovim = {
+    enable = true;
+    viAlias = true;
+    vimAlias = true;
+    defaultEditor = true;
+    configure = {
+      customRC = ''
+          luafile /home/dungph/.dotfiles/nvim/settings.lua
+      '';
+      packages.myVimPackage = with pkgs.vimPlugins; {
+        # loaded on launch
+        start = [
+          # ident vertical line
+          indentLine
 
-            # auto complete
-            nvim-cmp
-            cmp-nvim-lsp
-            cmp-path
-            cmp-buffer
-            cmp-vsnip
-            vim-vsnip
+          # auto complete
+          nvim-cmp
+          cmp-nvim-lsp
+          cmp-path
+          cmp-buffer
+          cmp-vsnip
+          vim-vsnip
 
-            # Lsp stuff
-            vim-nix
-            nvim-lspconfig
-            rust-tools-nvim
-            popup-nvim
-            plenary-nvim
-            telescope-nvim
-            nvim-dap
-            lspsaga-nvim
-            rust-vim
+          # Lsp stuff
+          vim-nix
+          nvim-lspconfig
+          rust-tools-nvim
+          popup-nvim
+          plenary-nvim
+          telescope-nvim
+          nvim-dap
+          lspsaga-nvim
+          rust-vim
 
-            # color
-            nord-vim
-            nvim-treesitter
+          # color
+          nord-vim
+          nvim-treesitter
 
-            # nvim tree
-            nvim-web-devicons
-            nvim-tree-lua
+          # nvim tree
+          nvim-web-devicons
+          nvim-tree-lua
 
-            # markdown preview
-            glow-nvim
-          ];
-          # manually loadable by calling `:packadd $plugin-name`
-          opt = [ ];
-        };
+          # markdown preview
+          glow-nvim
+        ];
+        # manually loadable by calling `:packadd $plugin-name`
+        opt = [ ];
       };
-    })
-  ];
+    };
+  };
+
 
   # This value determines the NixOS release from which the default
   # settings for stateful data, like file locations and database versions
@@ -205,6 +201,6 @@
   # this value at the release version of the first install of this system.
   # Before changing this value read the documentation for this option
   # (e.g. man configuration.nix or on https://nixos.org/nixos/options.html).
-  system.stateVersion = "21.05"; # Did you read the comment?
+  system.stateVersion = "21.11"; # Did you read the comment?
 }
 
