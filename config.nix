@@ -45,7 +45,7 @@
   # Define a user account. Don't forget to set a password with ‘passwd’.
   users.users.dungph = {
     isNormalUser = true;
-    extraGroups = [ "wheel" "networkmanager" "audio" ];
+    extraGroups = [ "wheel" "networkmanager" "audio"];
     shell = pkgs.fish;
   };
   services.udev.packages = [ pkgs.stlink ];
@@ -58,6 +58,9 @@
     la = "exa -a";
     cat = "bat";
   };
+  programs.fish.shellInit = "
+    set fish_prompt_pwd_dir_length 3
+  ";
 
   # Enable the X11 windowing system.
   services.xserver.enable = true;
@@ -95,6 +98,12 @@
 
   # Allow Unfree software
   nixpkgs.config.allowUnfree = true;
+
+  #virtualisation.virtualbox.host.enable = true;
+  #virtualisation.virtualbox.host.enableExtensionPack = true;
+  #users.extraGroups.vboxusers.members = [ "dungph" ];
+  #
+  #virtualisation.libvirtd.enable = true;
 
   # List packages installed in system profile. To search, run:
   # $ nix search wget
@@ -138,6 +147,8 @@
     vlc
     teams
     eclipses.eclipse-java
+    #virtmanager
+    #qemu_kvm
   ];
   
   environment.variables.JDTLS_HOME = "/home/dungph/.jdt";
@@ -178,7 +189,7 @@
           rust-vim
 
           # color
-          nord-vim
+          nord-nvim
           nvim-treesitter
 
           # nvim tree
