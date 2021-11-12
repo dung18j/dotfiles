@@ -114,6 +114,7 @@
     cargo-edit
     cargo-embed
     trunk
+    wasm-pack
     sqlx-cli
     probe-run
     gcc
