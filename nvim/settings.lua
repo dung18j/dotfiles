@@ -21,6 +21,11 @@ map('n', 'L', 'l', {noremap = true})
 map('n', 'H', 'h', {noremap = true})
 map('n', 'l', 'w', {noremap = true})
 map('n', 'h', 'b', {noremap = true})
+
+map('v', 'L', 'l', {noremap = true})
+map('v', 'H', 'h', {noremap = true})
+map('v', 'h', 'b', {noremap = true})
+map('v', 'l', 'w', {noremap = true})
 map('n', 'q:', '<nop>', {noremap = true})
 
 -- Nicer UI settings
