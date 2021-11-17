@@ -105,6 +105,11 @@
   #
   #virtualisation.libvirtd.enable = true;
 
+  fonts.fonts = with pkgs; [
+    fira
+    fira-code
+    fira-code-symbols
+  ];
   # List packages installed in system profile. To search, run:
   # $ nix search wget
   environment.systemPackages = with pkgs; [
@@ -136,6 +141,7 @@
 
 
     # utils
+    ripgrep
     wget
     htop
     firefox
@@ -148,6 +154,7 @@
     vlc
     teams
     eclipses.eclipse-java
+    unrar
     #virtmanager
     #qemu_kvm
   ];
