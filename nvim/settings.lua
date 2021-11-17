@@ -47,15 +47,15 @@ opt.lazyredraw = true;
 opt.shell = "fish"
 opt.shadafile = "NONE"
 
---require'nvim-treesitter.configs'.setup {
---    ensure_installed = "maintained", -- one of "all", "maintained" (parsers with maintainers), or a list of languages
---    highlight = {
---        enable = true,              -- false will disable the whole extension
---    },
---    autotag = {
---        enable = true,
---    },
---}
+require'nvim-treesitter.configs'.setup {
+    ensure_installed = "maintained", -- one of "all", "maintained" (parsers with maintainers), or a list of languages
+    highlight = {
+        enable = true,              -- false will disable the whole extension
+    },
+    autotag = {
+        enable = true,
+    },
+}
 
 
 vim.g.nord_contrast = true
