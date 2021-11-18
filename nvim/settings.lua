@@ -27,6 +27,8 @@ map('v', 'H', 'h', {noremap = true})
 map('v', 'h', 'b', {noremap = true})
 map('v', 'l', 'w', {noremap = true})
 map('n', 'q:', '<nop>', {noremap = true})
+map('n', 'q', '<nop>', {noremap = true})
+map('n', 'Q', 'q', {noremap = true})
 
 -- Nicer UI settings
 opt.cursorline = true
