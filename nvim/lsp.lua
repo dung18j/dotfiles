@@ -1,3 +1,5 @@
+local util = require 'lspconfig/util'
+
 vim.o.completeopt = "menuone,noselect"
 
 require'lspconfig'.clangd.setup{}
@@ -5,7 +7,29 @@ require'lspsaga'.init_lsp_saga()
 require'lspconfig'.rnix.setup{}
 -- require'lspconfig'.sumneko_lua.setup{}
 
-require'lspconfig'.jdtls.setup{}
+local root_files = {
+  -- Single-module projects
+  {
+    'build.xml', -- Ant
+    'pom.xml', -- Maven
+    'settings.gradle', -- Gradle
+    'settings.gradle.kts', -- Gradle
+  },
+  -- Multi-module projects
+  { 'build.gradle', 'build.gradle.kts' },
+}
+
+require'lspconfig'.jdtls.setup{
+    root_dir = function(fname)
+      for _, patterns in ipairs(root_files) do
+        local root = util.root_pattern(unpack(patterns))(fname)
+        if root then
+          return root
+        end
+      end
+      return vim.fn.getcwd()
+    end,
+}
 
 local map = vim.api.nvim_set_keymap
 
