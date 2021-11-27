@@ -13,6 +13,7 @@
 
   networking.hostName = "thinkpad"; # Define your hostname.
   networking.networkmanager.enable = true;  # Enables network support via networkmanager.
+  networking.networkmanager.wifi.backend = "iwd";
 
   # The global useDHCP flag is deprecated, therefore explicitly set to false here.
   # Per-interface useDHCP will be mandatory in the future, so this generated config
@@ -104,11 +105,13 @@
   #users.extraGroups.vboxusers.members = [ "dungph" ];
   #
   #virtualisation.libvirtd.enable = true;
+  
+  services.teamviewer.enable = true;
 
   fonts.fonts = with pkgs; [
     fira
     fira-code
-    fira-code-symbols
+    #fira-code-symbols
   ];
   # List packages installed in system profile. To search, run:
   # $ nix search wget
@@ -127,9 +130,7 @@
 
     # Other langs
     clang-tools
-    rnix-lsp
-    sumneko-lua-language-server
-    jdk11
+    adoptopenjdk-bin
 
     # markdown preview
     glow
@@ -141,10 +142,11 @@
 
 
     # utils
+    # cloudflared
     ripgrep
     wget
     htop
-    firefox
+    firefox-bin
     dropbox
     exa
     bat
@@ -153,14 +155,18 @@
     obs-studio
     vlc
     teams
-    eclipses.eclipse-java
+    teamviewer
+    #eclipses.eclipse-java
     unrar
+    ffmpeg
+    libuv
+    libreoffice
     #virtmanager
     #qemu_kvm
   ];
   
   environment.variables.JDTLS_HOME = "/home/dungph/.jdt";
-
+  environment.variables.TERMINAL = "alacritty";
     # Neovim
   programs.neovim = {
     enable = true;
