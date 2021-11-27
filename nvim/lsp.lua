@@ -1,10 +1,10 @@
 local util = require 'lspconfig/util'
 
-vim.o.completeopt = "menuone,noselect"
+vim.o.completeopt = "menuone,noinsert,noselect"
 
 require'lspconfig'.clangd.setup{}
 require'lspsaga'.init_lsp_saga()
-require'lspconfig'.rnix.setup{}
+-- require'lspconfig'.rnix.setup{}
 -- require'lspconfig'.sumneko_lua.setup{}
 
 local root_files = {

@@ -49,16 +49,15 @@ opt.lazyredraw = true;
 opt.shell = "fish"
 opt.shadafile = "NONE"
 
-require'nvim-treesitter.configs'.setup {
-    ensure_installed = "maintained", -- one of "all", "maintained" (parsers with maintainers), or a list of languages
-    highlight = {
-        enable = true,              -- false will disable the whole extension
-    },
-    autotag = {
-        enable = true,
-    },
-}
-
+--require'nvim-treesitter.configs'.setup {
+--    ensure_installed = "maintained", -- one of "all", "maintained" (parsers with maintainers), or a list of languages
+--    highlight = {
+--        enable = true,              -- false will disable the whole extension
+--    },
+--    autotag = {
+--        enable = true,
+--    },
+--}
 
 vim.g.nord_contrast = true
 vim.g.nord_borders = false
@@ -66,3 +65,15 @@ vim.g.nord_disable_background = true
 vim.g.nord_italic = false
 
 require('nord').set()
+
+vim.fn.sign_define("LspDiagnosticsSignError",
+    {text = "❌", texthl = "LspDiagnosticsSignError"})
+vim.fn.sign_define("LspDiagnosticsSignWarning",
+    {text = "⚠️", texthl = "LspDiagnosticsSignWarning"})
+vim.fn.sign_define("LspDiagnosticsSignInformation",
+    {text = "ℹ️", texthl = "LspDiagnosticsSignInformation"})
+vim.fn.sign_define("LspDiagnosticsSignHint",
+    {text = "🔥", texthl = "LspDiagnosticsSignHint"})
+vim.fn.sign_define("LspSagaLightBulb",
+    {text="➡️", texthl="LspSagaLightBulbSign"})
+
