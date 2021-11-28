@@ -167,7 +167,8 @@
   
   environment.variables.JDTLS_HOME = "/home/dungph/.jdt";
   environment.variables.TERMINAL = "alacritty";
-    # Neovim
+
+  # Neovim
   programs.neovim = {
     enable = true;
     viAlias = true;
