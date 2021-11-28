@@ -30,6 +30,9 @@ map('n', 'q:', '<nop>', {noremap = true})
 map('n', 'q', '<nop>', {noremap = true})
 map('n', 'Q', 'q', {noremap = true})
 
+map('n', '<c-a>', '<cmd>:lua require("lspsaga.floaterm").open_float_terminal()<CR>', {noremap = true})
+map('t', '<c-a>', '<cmd>:lua require("lspsaga.floaterm").close_float_terminal()<CR>', {noremap = true})
+
 -- Nicer UI settings
 opt.cursorline = true
 opt.relativenumber = true
