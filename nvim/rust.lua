@@ -26,6 +26,8 @@ local opts = {
             }
         }
     },
+
+    on_attach = on_attach
 }
 
 require('rust-tools').setup(opts)

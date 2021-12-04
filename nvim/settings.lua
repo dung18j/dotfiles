@@ -1,5 +1,26 @@
 vim.cmd [[
-	syntax on
+    call plug#begin('~/.vim/plugged')
+    Plug 'Yggdroot/indentLine'
+    Plug 'neovim/nvim-lspconfig'
+    Plug 'hrsh7th/nvim-cmp'
+    Plug 'hrsh7th/cmp-nvim-lsp'
+    Plug 'hrsh7th/cmp-vsnip'
+    Plug 'hrsh7th/cmp-path'
+    Plug 'hrsh7th/cmp-buffer'
+    Plug 'hrsh7th/vim-vsnip'
+    Plug 'simrat39/rust-tools.nvim'
+    Plug 'nvim-lua/popup.nvim'
+    Plug 'nvim-lua/plenary.nvim'
+    Plug 'nvim-telescope/telescope.nvim'
+    Plug 'shaunsingh/nord.nvim'
+    Plug 'glepnir/lspsaga.nvim'
+    Plug 'kyazdani42/nvim-web-devicons' " for file icons
+    Plug 'kyazdani42/nvim-tree.lua'
+    Plug 'mfussenegger/nvim-jdtls'
+    Plug 'tomlion/vim-solidity'
+    call plug#end()
+
+    syntax on
     set shortmess+=c
 
     " Code navigation shortcuts
@@ -10,8 +31,9 @@ vim.cmd [[
 
 dofile("/home/dungph/.dotfiles/nvim/lsp.lua")
 dofile("/home/dungph/.dotfiles/nvim/cmp.lua")
-dofile("/home/dungph/.dotfiles/nvim/rust.lua")
+--dofile("/home/dungph/.dotfiles/nvim/rust.lua")
 dofile("/home/dungph/.dotfiles/nvim/tree.lua")
+--dofile("/home/dungph/.dotfiles/nvim/jdtls.lua")
 
 local opt = vim.opt
 local g = vim.g
@@ -79,4 +101,12 @@ vim.fn.sign_define("LspDiagnosticsSignHint",
     {text = "🔥", texthl = "LspDiagnosticsSignHint"})
 vim.fn.sign_define("LspSagaLightBulb",
     {text="➡️", texthl="LspSagaLightBulbSign"})
+vim.fn.sign_define("DiagnosticSignError",
+    {text = "❌", texthl = "DiagnosticSignError"})
+vim.fn.sign_define("DiagnosticSignWarning",
+    {text = "⚠️", texthl = "DiagnosticSignWarning"})
+vim.fn.sign_define("DiagnosticSignInformation",
+    {text = "ℹ️", texthl = "DiagnosticSignInformation"})
+vim.fn.sign_define("DiagnosticSignHint",
+    {text = "🔥", texthl = "DiagnosticSignHint"})
 
