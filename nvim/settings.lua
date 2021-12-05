@@ -26,6 +26,8 @@ vim.cmd [[
     " Code navigation shortcuts
     set signcolumn=yes
 
+    set clipboard+=unnamedplus
+
     autocmd BufReadPost * if @% !~# '\.git[\/\\]COMMIT_EDITMSG$' && line("'\"") > 1 && line("'\"") <= line("$") | exe "normal! g`\"" | endif
 ]]
 
@@ -39,21 +41,23 @@ local opt = vim.opt
 local g = vim.g
 
 local map = vim.api.nvim_set_keymap
-map('n', 'L', 'l', {noremap = true})
-map('n', 'H', 'h', {noremap = true})
-map('n', 'l', 'w', {noremap = true})
-map('n', 'h', 'b', {noremap = true})
-
-map('v', 'L', 'l', {noremap = true})
-map('v', 'H', 'h', {noremap = true})
-map('v', 'h', 'b', {noremap = true})
-map('v', 'l', 'w', {noremap = true})
+--map('n', 'L', 'l', {noremap = true})
+--map('n', 'H', 'h', {noremap = true})
+--map('n', 'l', 'w', {noremap = true})
+--map('n', 'h', 'b', {noremap = true})
+--
+--map('v', 'L', 'l', {noremap = true})
+--map('v', 'H', 'h', {noremap = true})
+--map('v', 'h', 'b', {noremap = true})
+--map('v', 'l', 'w', {noremap = true})
 map('n', 'q:', '<nop>', {noremap = true})
 map('n', 'q', '<nop>', {noremap = true})
 map('n', 'Q', 'q', {noremap = true})
 
 map('n', '<c-a>', '<cmd>:lua require("lspsaga.floaterm").open_float_terminal()<CR>', {noremap = true})
 map('t', '<c-a>', '<cmd>:lua require("lspsaga.floaterm").close_float_terminal()<CR>', {noremap = true})
+
+g.indentLine_char_list = {'|', '¦', '┆', '┊'}
 
 -- Nicer UI settings
 opt.cursorline = true
