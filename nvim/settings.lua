@@ -1,4 +1,8 @@
+local opt = vim.opt
+local g = vim.g
+
 vim.cmd [[
+    let base16colorspace=256
     call plug#begin('~/.vim/plugged')
     Plug 'Yggdroot/indentLine'
     Plug 'neovim/nvim-lspconfig'
@@ -18,6 +22,11 @@ vim.cmd [[
     Plug 'kyazdani42/nvim-tree.lua'
     Plug 'mfussenegger/nvim-jdtls'
     Plug 'tomlion/vim-solidity'
+    Plug 'saecki/crates.nvim'
+    Plug 'chriskempson/base16-vim'
+    Plug 'mhinz/vim-signify'
+    Plug 'nvim-treesitter/nvim-treesitter', {'do': ':TSUpdate'} 
+
     call plug#end()
 
     syntax on
@@ -28,17 +37,14 @@ vim.cmd [[
 
     set clipboard+=unnamedplus
 
+    colorscheme base16-tomorrow-night
+    
     autocmd BufReadPost * if @% !~# '\.git[\/\\]COMMIT_EDITMSG$' && line("'\"") > 1 && line("'\"") <= line("$") | exe "normal! g`\"" | endif
 ]]
 
 dofile("/home/dungph/.dotfiles/nvim/lsp.lua")
 dofile("/home/dungph/.dotfiles/nvim/cmp.lua")
---dofile("/home/dungph/.dotfiles/nvim/rust.lua")
 dofile("/home/dungph/.dotfiles/nvim/tree.lua")
---dofile("/home/dungph/.dotfiles/nvim/jdtls.lua")
-
-local opt = vim.opt
-local g = vim.g
 
 local map = vim.api.nvim_set_keymap
 --map('n', 'L', 'l', {noremap = true})
@@ -78,39 +84,13 @@ opt.lazyredraw = true;
 opt.shell = "fish"
 opt.shadafile = "NONE"
 
---require'nvim-treesitter.configs'.setup {
---    ensure_installed = "maintained", -- one of "all", "maintained" (parsers with maintainers), or a list of languages
---    highlight = {
---        enable = true,              -- false will disable the whole extension
---    },
---    autotag = {
---        enable = true,
---    },
---}
-
-vim.g.nord_contrast = true
-vim.g.nord_borders = false
-vim.g.nord_disable_background = true
-vim.g.nord_italic = false
-
-require('nord').set()
-
-vim.fn.sign_define("LspDiagnosticsSignError",
-    {text = "❌", texthl = "LspDiagnosticsSignError"})
-vim.fn.sign_define("LspDiagnosticsSignWarning",
-    {text = "⚠️", texthl = "LspDiagnosticsSignWarning"})
-vim.fn.sign_define("LspDiagnosticsSignInformation",
-    {text = "ℹ️", texthl = "LspDiagnosticsSignInformation"})
-vim.fn.sign_define("LspDiagnosticsSignHint",
-    {text = "🔥", texthl = "LspDiagnosticsSignHint"})
-vim.fn.sign_define("LspSagaLightBulb",
-    {text="➡️", texthl="LspSagaLightBulbSign"})
-vim.fn.sign_define("DiagnosticSignError",
-    {text = "❌", texthl = "DiagnosticSignError"})
-vim.fn.sign_define("DiagnosticSignWarning",
-    {text = "⚠️", texthl = "DiagnosticSignWarning"})
-vim.fn.sign_define("DiagnosticSignInformation",
-    {text = "ℹ️", texthl = "DiagnosticSignInformation"})
-vim.fn.sign_define("DiagnosticSignHint",
-    {text = "🔥", texthl = "DiagnosticSignHint"})
+require'nvim-treesitter.configs'.setup {
+    ensure_installed = "maintained", -- one of "all", "maintained" (parsers with maintainers), or a list of languages
+    highlight = {
+        enable = true,              -- false will disable the whole extension
+    },
+    autotag = {
+        enable = true,
+    },
+}
 
