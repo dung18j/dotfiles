@@ -26,6 +26,7 @@ vim.cmd [[
     Plug 'chriskempson/base16-vim'
     Plug 'mhinz/vim-signify'
     Plug 'nvim-treesitter/nvim-treesitter', {'do': ':TSUpdate'} 
+    Plug 'windwp/nvim-autopairs'
 
     call plug#end()
 
@@ -93,4 +94,4 @@ require'nvim-treesitter.configs'.setup {
         enable = true,
     },
 }
-
+require('nvim-autopairs').setup{}
