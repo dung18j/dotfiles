@@ -15,3 +15,5 @@ rustup
 teams
 wl-clipboard
 xclip
+lua-language-server
+rust-analyzer
