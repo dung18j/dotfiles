@@ -36,6 +36,8 @@ vim.cmd [[
     " Code navigation shortcuts
     set signcolumn=yes
 
+    set termguicolors " this variable must be enabled for colors to be applied properly
+   
     set clipboard+=unnamedplus
 
     colorscheme base16-tomorrow-night
