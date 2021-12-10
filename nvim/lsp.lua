@@ -20,14 +20,14 @@ local on_attach = function(client, bufnr)
   map('n', '<space>e', '<cmd>lua vim.diagnostic.open_float()<CR>', opts)
   map('n', '<space>q', '<cmd>lua vim.diagnostic.setloclist()<CR>', opts)
   map('n', '<space>f', '<cmd>lua vim.lsp.buf.formatting()<CR>', opts)
-  map('n', 'K',       '<cmd>lua vim.lsp.buf.hover()<CR>',             opts)
-  map('n', 'gr',      '<cmd>lua vim.lsp.buf.references()<CR>',        opts)
-  map('n', 'g0',      '<cmd>lua vim.lsp.buf.document_symbol()<CR>',   opts)
-  map('n', 'gW',      '<cmd>lua vim.lsp.buf.workspace_symbol()<CR>',  opts)
-  map('n', 'ga',      '<cmd>lua vim.lsp.buf.code_action()<CR>',       opts)
-  map('n', '<c-j>',   '<cmd>lua vim.lsp.diagnostic.show_line_diagnostics()<CR>', opts)
-  map('n', 'g[',      '<cmd>lua vim.lsp.diagnostic.goto_prev()<CR>',  opts)
-  map('n', 'g]',      '<cmd>lua vim.lsp.diagnostic.goto_next()<CR>',  opts)
+  map('n', 'K', '<cmd>lua vim.lsp.buf.hover()<CR>', opts)
+  map('n', 'gr', '<cmd>lua vim.lsp.buf.references()<CR>', opts)
+  map('n', 'g0', '<cmd>lua vim.lsp.buf.document_symbol()<CR>', opts)
+  map('n', 'gW', '<cmd>lua vim.lsp.buf.workspace_symbol()<CR>', opts)
+  map('n', 'ga', '<cmd>lua vim.lsp.buf.code_action()<CR>', opts)
+  map('n', '<c-j>', '<cmd>lua vim.lsp.diagnostic.show_line_diagnostics()<CR>', opts)
+  map('n', 'g[', '<cmd>lua vim.lsp.diagnostic.goto_prev()<CR>', opts)
+  map('n', 'g]', '<cmd>lua vim.lsp.diagnostic.goto_next()<CR>', opts)
 
 end
 
@@ -49,7 +49,7 @@ require'lspconfig'.solang.setup{
     cmd = { "solang", "--language-server", "--target", "ewasm" },
     filetypes = { "solidity" },
     on_attach = on_attach,
-    root_dir = require'lspconfig/util'.root_pattern("package.json", ".git")
+    root_dir = require'lspconfig'.util.root_pattern("package.json", ".git")
 }
 
 require'lspconfig'.jdtls.setup{
@@ -95,3 +95,21 @@ local opts = {
 }
 
 require('rust-tools').setup(opts)
+require'lspconfig'.sumneko_lua.setup{
+    cmd = { "lua-language-server" },
+    filetypes = { "lua" },
+    log_level = 2,
+    root_dir = require'lspconfig'.util.root_pattern(".git") or bufdir,
+    settings = {
+      Lua = {
+        telemetry = {
+          enable = false
+        },
+        diagnostic = {
+            globals = { 'vim' }
+        }
+      }
+    },
+    single_file_support = true,
+    on_attach = on_attach
+}
