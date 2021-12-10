@@ -13,3 +13,5 @@ docker
 docker-compose
 rustup
 teams
+wl-clipboard
+xclip
