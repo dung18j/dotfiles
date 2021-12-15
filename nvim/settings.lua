@@ -17,7 +17,6 @@ vim.cmd [[
     Plug 'nvim-lua/plenary.nvim'
     Plug 'nvim-telescope/telescope.nvim'
     Plug 'shaunsingh/nord.nvim'
-    Plug 'glepnir/lspsaga.nvim'
     Plug 'kyazdani42/nvim-web-devicons' " for file icons
     Plug 'kyazdani42/nvim-tree.lua'
     Plug 'mfussenegger/nvim-jdtls'
@@ -27,10 +26,10 @@ vim.cmd [[
     Plug 'mhinz/vim-signify'
     Plug 'nvim-treesitter/nvim-treesitter', {'do': ':TSUpdate'} 
     Plug 'windwp/nvim-autopairs'
+    Plug 'rust-lang/rust.vim'
 
     call plug#end()
 
-    syntax on
     set shortmess+=c
 
     " Code navigation shortcuts
@@ -41,8 +40,6 @@ vim.cmd [[
     set clipboard+=unnamedplus
 
     colorscheme base16-tomorrow-night
-    
-    autocmd BufReadPost * if @% !~# '\.git[\/\\]COMMIT_EDITMSG$' && line("'\"") > 1 && line("'\"") <= line("$") | exe "normal! g`\"" | endif
 ]]
 
 dofile("/home/dungph/.dotfiles/nvim/lsp.lua")
@@ -50,23 +47,12 @@ dofile("/home/dungph/.dotfiles/nvim/cmp.lua")
 dofile("/home/dungph/.dotfiles/nvim/tree.lua")
 
 local map = vim.api.nvim_set_keymap
---map('n', 'L', 'l', {noremap = true})
---map('n', 'H', 'h', {noremap = true})
---map('n', 'l', 'w', {noremap = true})
---map('n', 'h', 'b', {noremap = true})
---
---map('v', 'L', 'l', {noremap = true})
---map('v', 'H', 'h', {noremap = true})
---map('v', 'h', 'b', {noremap = true})
---map('v', 'l', 'w', {noremap = true})
 map('n', 'q:', '<nop>', {noremap = true})
 map('n', 'q', '<nop>', {noremap = true})
 map('n', 'Q', 'q', {noremap = true})
+map('n', '<c-a>', '<cmd>:terminal<CR>i', {noremap = true})
 
-map('n', '<c-a>', '<cmd>:lua require("lspsaga.floaterm").open_float_terminal()<CR>', {noremap = true})
-map('t', '<c-a>', '<cmd>:lua require("lspsaga.floaterm").close_float_terminal()<CR>', {noremap = true})
-
-g.indentLine_char_list = {'|', '¦', '┆', '┊'}
+g.indentLine_char_list = {'▏', '╎', '┆', '┊'}
 
 -- Nicer UI settings
 opt.cursorline = true
