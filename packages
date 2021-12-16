@@ -12,9 +12,9 @@ ripgrep
 docker
 docker-compose
 rustup
-teams
 wl-clipboard
 xclip
 lua-language-server
 rust-analyzer
 dnsmasq
+gimp
