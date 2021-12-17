@@ -18,7 +18,7 @@ Plug 'kyazdani42/nvim-tree.lua'
 Plug 'mfussenegger/nvim-jdtls'
 Plug 'tomlion/vim-solidity'
 Plug 'saecki/crates.nvim'
-Plug 'chriskempson/base16-vim'
+Plug 'sainnhe/gruvbox-material'
 Plug 'mhinz/vim-signify'
 Plug('nvim-treesitter/nvim-treesitter', {['do'] = ':TSUpdate'})
 Plug 'windwp/nvim-autopairs'

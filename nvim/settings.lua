@@ -28,10 +28,15 @@ vim.opt.mouse = 'a';
 -- Enable clipboard
 vim.opt.clipboard = 'unnamedplus'
 
--- colorscheme
-vim.opt.termguicolors = true
---g.colo = 'base16-tomorrow-night'
-vim.cmd('colorscheme base16-tomorrow-night')
+-- Colorscheme: gruvbox, medium dark
+vim.cmd([[
+    if has('termguicolors')
+        set termguicolors
+    endif
+    let g:gruvbox_material_background = 'medium'
+    set background=dark
+    colorscheme gruvbox-material
+]])
 
 -- ident characters
 vim.g.indentLine_char_list = {'▏', '╎', '┆', '┊'}
