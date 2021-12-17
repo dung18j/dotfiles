@@ -48,3 +48,13 @@ map('n', 'q', '<nop>', {noremap = true})
 map('n', 'Q', 'q', {noremap = true})
 map('n', '<c-a>', '<cmd>:terminal<CR>i', {noremap = true})
 
+require'nvim-treesitter.configs'.setup {
+    ensure_installed = "maintained", -- one of "all", "maintained" (parsers with maintainers), or a list of languages
+    highlight = {
+        enable = true,              -- false will disable the whole extension
+    },
+    autotag = {
+        enable = true,
+    },
+}
+require('nvim-autopairs').setup{}
