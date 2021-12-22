@@ -41,7 +41,7 @@ vim.cmd([[
 -- ident characters
 vim.g.indentLine_char_list = {'▏', '╎', '┆', '┊'}
 
--- Some keymap to get rid of mistakes
+-- Some keymap to get rid of mispress
 local map = vim.api.nvim_set_keymap
 map('n', 'q:', '<nop>', {noremap = true})
 map('n', 'q', '<nop>', {noremap = true})
