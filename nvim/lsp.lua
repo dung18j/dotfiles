@@ -19,10 +19,6 @@ local on_attach = function(client, bufnr)
     map('n', 'K', '<cmd>lua vim.lsp.buf.hover()<CR>', opts)
     map('n', '<C-k>', '<cmd>lua vim.lsp.buf.signature_help()<CR>', opts)
     map('n', '<C-j>', '<cmd>lua vim.lsp.diagnostic.show_line_diagnostics()<CR>', opts)
-    map('n', '<space>wa', '<cmd>lua vim.lsp.buf.add_workspace_folder()<CR>', opts)
-    map('n', '<space>wr', '<cmd>lua vim.lsp.buf.remove_workspace_folder()<CR>', opts)
-    map('n', '<space>wl', '<cmd>lua print(vim.inspect(vim.lsp.buf.list_workspace_folders()))<CR>', opts)
-    map('n', '<space>D', '<cmd>lua vim.lsp.buf.type_definition()<CR>', opts)
     map('n', '<space>r', '<cmd>lua vim.lsp.buf.rename()<CR>', opts)
     map('n', '<space>ca', '<cmd>lua vim.lsp.buf.code_action()<CR>', opts)
     map('n', '<space>e', '<cmd>lua vim.diagnostic.open_float()<CR>', opts)
@@ -32,7 +28,6 @@ local on_attach = function(client, bufnr)
     map('n', '<space>]', '<cmd>lua vim.lsp.diagnostic.goto_next()<CR>', opts)
     map('n', 'g[', '<cmd>lua vim.lsp.diagnostic.goto_prev()<CR>', opts)
     map('n', 'g]', '<cmd>lua vim.lsp.diagnostic.goto_next()<CR>', opts)
-
 end
 
 
