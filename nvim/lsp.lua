@@ -40,6 +40,7 @@ end
 require'lspconfig'.clangd.setup{
     on_attach = on_attach
 }
+
 require'lspconfig'.solang.setup{
     cmd = { "solang", "--language-server", "--target", "ewasm" },
     filetypes = { "solidity" },
@@ -57,7 +58,7 @@ require'lspconfig'.tsserver.setup{
     settings = {documentFormatting = true}
 }
 
-local opts = {
+require('rust-tools').setup{
     tools = { -- rust-tools options
         autoSetHints = true,
         hover_with_actions = true,
@@ -89,7 +90,6 @@ local opts = {
     },
 }
 
-require('rust-tools').setup(opts)
 require'lspconfig'.sumneko_lua.setup{
     cmd = { "lua-language-server" },
     filetypes = { "lua" },
