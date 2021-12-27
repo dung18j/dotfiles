@@ -30,12 +30,6 @@ local on_attach = function(client, bufnr)
     map('n', 'g]', '<cmd>lua vim.lsp.diagnostic.goto_next()<CR>', opts)
 end
 
-
-
-require'lspconfig'.clangd.setup{
-    on_attach = on_attach
-}
-
 require'lspconfig'.solang.setup{
     cmd = { "solang", "--language-server", "--target", "ewasm" },
     filetypes = { "solidity" },
@@ -90,24 +84,4 @@ require('rust-tools').setup{
 
         on_attach = on_attach
     },
-}
-
-require'lspconfig'.sumneko_lua.setup{
-    cmd = { "lua-language-server" },
-    filetypes = { "lua" },
-    log_level = 2,
-    root_dir = require'lspconfig'.util.root_pattern(".git"),-- or bufdir,
-    settings = {
-      Lua = {
-        telemetry = {
-          enable = false
-        },
-        diagnostics = {
-            globals = { 'vim' }
-        }
-
-      }
-    },
-    single_file_support = true,
-    on_attach = on_attach
 }

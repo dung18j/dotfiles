@@ -72,7 +72,7 @@ window:
   #
   # Values for `startup_mode` (macOS only):
   #   - SimpleFullscreen
-  startup_mode: Windowed
+  startup_mode: Maximized
 
   # Window title
   #title: Alacritty
@@ -175,11 +175,11 @@ font:
 # If `true`, bold text is drawn using the bright color variants.
 #draw_bold_text_with_bright_colors: false
 
-# Colors (Gruvbox Material Dark Medium)
+# Colors (Gruvbox Material Light Medium)
 colors:
   primary:
-    background: '0x282828'
-    foreground: '0xdfbf8e'
+    background: '0xfbf1c7'
+    foreground: '0x3c3836'
 
   normal:
     black:   '0x665c54'
