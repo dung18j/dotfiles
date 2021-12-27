@@ -7,5 +7,5 @@ abbr vi nvim
 
 set fish_prompt_pwd_dir_length 3
 setenv EDITOR nvim
-setenv JDTLS_HOME /home/dungph/.jdt/ 
+setenv JDTLS_HOME /var/.jdt/ 
 setenv WORKSPACE /home/dungph/.jdt_workspace/
