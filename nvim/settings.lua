@@ -58,3 +58,6 @@ require'nvim-treesitter.configs'.setup {
     },
 }
 require('nvim-autopairs').setup{}
+require('crates').setup()
+vim.ui.select = require"popui.ui-overrider"
+
