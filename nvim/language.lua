@@ -29,13 +29,8 @@ local on_attach = function(client, bufnr)
     map('n', 'g]', '<cmd>lua vim.lsp.diagnostic.goto_next()<CR>', opts)
 end
 
-require'lspconfig'.clangd.setup{
-    on_attach = on_attach
-}
-
-require'lspconfig'.jdtls.setup{
-    on_attach = on_attach
-}
+vim.cmd("autocmd FileType solidity setlocal shiftwidth=4 softtabstop=4 tabstop=4 expandtab")
+require'lspconfig'.solidity_ls.setup{}
 
 vim.cmd("autocmd FileType javascript setlocal shiftwidth=2 softtabstop=2 tabstop=2 expandtab")
 vim.cmd("autocmd FileType typescript setlocal shiftwidth=2 softtabstop=2 tabstop=2 expandtab")
@@ -80,24 +75,4 @@ require('rust-tools').setup{
 
         on_attach = on_attach
     },
-}
-
-require'lspconfig'.sumneko_lua.setup{
-    cmd = { "lua-language-server" },
-    filetypes = { "lua" },
-    log_level = 2,
-    root_dir = require'lspconfig'.util.root_pattern(".git"),-- or bufdir,
-    settings = {
-      Lua = {
-        telemetry = {
-          enable = false
-        },
-        diagnostics = {
-            globals = { 'vim' }
-        }
-
-      }
-    },
-    single_file_support = true,
-    on_attach = on_attach
 }

@@ -37,7 +37,7 @@ vim.cmd([[
         set termguicolors
     endif
     let g:gruvbox_material_background = 'medium'
-    set background=dark
+    set background=light
     colorscheme gruvbox-material
 ]])
 

@@ -1,5 +1,8 @@
 local Plug = vim.fn['plug#']
 vim.call('plug#begin', '~/.vim/plugged')
+
+Plug 'wakatime/vim-wakatime'
+
 Plug 'RishabhRD/popfix'
 Plug 'hood/popui.nvim'
 
@@ -26,8 +29,6 @@ Plug 'nvim-lua/plenary.nvim'
 
 Plug 'kyazdani42/nvim-web-devicons'
 Plug 'kyazdani42/nvim-tree.lua'
-
-Plug 'mfussenegger/nvim-jdtls'
 
 Plug 'tomlion/vim-solidity'
 
