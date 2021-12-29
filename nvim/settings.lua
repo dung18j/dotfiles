@@ -46,7 +46,7 @@ local map = vim.api.nvim_set_keymap
 map('n', 'q:', '<nop>', {noremap = true})
 map('n', 'q', '<nop>', {noremap = true})
 map('n', 'Q', 'q', {noremap = true})
-map('n', '<c-a>', '<cmd>:terminal<CR>i', {noremap = true})
+map('n', '<c-a>', '<cmd>:terminal<CR>:setlocal nonumber norelativenumber<CR>i', {noremap = true})
 
 require'nvim-treesitter.configs'.setup {
     ensure_installed = "maintained", -- one of "all", "maintained" (parsers with maintainers), or a list of languages
