@@ -78,6 +78,9 @@ require('rust-tools').setup{
                 checkOnSave = {
                     command = "clippy"
                 },
+                procMacro = {
+                    enable = false,
+                }
             }
         },
 
@@ -98,6 +101,7 @@ require'lspconfig'.sumneko_lua.setup{
         diagnostics = {
             globals = { 'vim' }
         }
+
       }
     },
     single_file_support = true,
