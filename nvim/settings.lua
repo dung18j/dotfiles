@@ -46,7 +46,6 @@ local map = vim.api.nvim_set_keymap
 map('n', 'q:', '<nop>', {noremap = true})
 map('n', 'q', '<nop>', {noremap = true})
 map('n', 'Q', 'q', {noremap = true})
-map('n', '<c-a>', '<cmd>:terminal<CR>:setlocal nonumber norelativenumber<CR>i', {noremap = true})
 
 require'nvim-treesitter.configs'.setup {
     ensure_installed = "maintained", -- one of "all", "maintained" (parsers with maintainers), or a list of languages
@@ -61,3 +60,17 @@ require('nvim-autopairs').setup{}
 require('crates').setup()
 vim.ui.select = require"popui.ui-overrider"
 
+require'FTerm'.setup({
+    border = 'double',
+    dimensions  = {
+        height = 0.9,
+        width = 0.9,
+    },
+})
+
+-- Example keybindings
+local map = vim.api.nvim_set_keymap
+local opts = { noremap = true, silent = true }
+
+map('n', '<C-i>', '<CMD>lua require("FTerm").toggle()<CR>', opts)
+map('t', '<C-i>', '<C-\\><C-n><CMD>lua require("FTerm").toggle()<CR>', opts)

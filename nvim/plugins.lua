@@ -3,6 +3,8 @@ vim.call('plug#begin', '~/.vim/plugged')
 Plug 'RishabhRD/popfix'
 Plug 'hood/popui.nvim'
 
+Plug 'numToStr/FTerm.nvim'
+
 Plug 'Yggdroot/indentLine'
 Plug 'windwp/nvim-autopairs'
 
