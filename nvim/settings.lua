@@ -1,7 +1,7 @@
 local user_folder = "/home/"..os.getenv("USER")
 
 dofile(user_folder .. "/.dotfiles/nvim/plugins.lua")
-dofile(user_folder .. "/.dotfiles/nvim/lsp.lua")
+dofile(user_folder .. "/.dotfiles/nvim/language.lua")
 dofile(user_folder .. "/.dotfiles/nvim/cmp.lua")
 dofile(user_folder .. "/.dotfiles/nvim/tree.lua")
 dofile(user_folder .. "/.dotfiles/nvim/utils.lua")

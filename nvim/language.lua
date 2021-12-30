@@ -47,12 +47,15 @@ require'lspconfig'.jdtls.setup{
     on_attach = on_attach
 }
 
+vim.cmd("autocmd FileType javascript setlocal shiftwidth=2 softtabstop=2 tabstop=2 expandtab")
+vim.cmd("autocmd FileType typescript setlocal shiftwidth=2 softtabstop=2 tabstop=2 expandtab")
 require'lspconfig'.tsserver.setup{
     root_dir = require'lspconfig'.util.root_pattern("packages.json", "yarn.lock", "lerna.json", ".git"),
     on_attach = on_attach,
     settings = {documentFormatting = true}
 }
 
+vim.cmd("autocmd FileType rust setlocal shiftwidth=4 softtabstop=4 tabstop=4 expandtab")
 require('crates').setup()
 require('rust-tools').setup{
     tools = { -- rust-tools options
