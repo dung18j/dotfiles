@@ -36,13 +36,6 @@ require'lspconfig'.clangd.setup{
     on_attach = on_attach
 }
 
-require'lspconfig'.solang.setup{
-    cmd = { "solang", "--language-server", "--target", "ewasm" },
-    filetypes = { "solidity" },
-    on_attach = on_attach,
-    root_dir = require'lspconfig'.util.root_pattern("package.json", ".git")
-}
-
 require'lspconfig'.jdtls.setup{
     on_attach = on_attach
 }
