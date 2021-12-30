@@ -2,6 +2,7 @@ dofile("/home/dungph/.dotfiles/nvim/plugins.lua")
 dofile("/home/dungph/.dotfiles/nvim/lsp.lua")
 dofile("/home/dungph/.dotfiles/nvim/cmp.lua")
 dofile("/home/dungph/.dotfiles/nvim/tree.lua")
+dofile("/home/dungph/.dotfiles/nvim/utils.lua")
 
 -- Nicer UI settings
 vim.opt.cursorline = true
@@ -38,39 +39,10 @@ vim.cmd([[
     colorscheme gruvbox-material
 ]])
 
--- ident characters
-vim.g.indentLine_char_list = {'▏', '╎', '┆', '┊'}
-
 -- Some keymap to get rid of mispress
 local map = vim.api.nvim_set_keymap
 map('n', 'q:', '<nop>', {noremap = true})
 map('n', 'q', '<nop>', {noremap = true})
 map('n', 'Q', 'q', {noremap = true})
 
-require'nvim-treesitter.configs'.setup {
-    ensure_installed = "maintained", -- one of "all", "maintained" (parsers with maintainers), or a list of languages
-    highlight = {
-        enable = true,              -- false will disable the whole extension
-    },
-    autotag = {
-        enable = true,
-    },
-}
-require('nvim-autopairs').setup{}
-require('crates').setup()
 vim.ui.select = require"popui.ui-overrider"
-
-require'FTerm'.setup({
-    border = 'double',
-    dimensions  = {
-        height = 0.9,
-        width = 0.9,
-    },
-})
-
--- Example keybindings
-local map = vim.api.nvim_set_keymap
-local opts = { noremap = true, silent = true }
-
-map('n', '<C-i>', '<CMD>lua require("FTerm").toggle()<CR>', opts)
-map('t', '<C-i>', '<C-\\><C-n><CMD>lua require("FTerm").toggle()<CR>', opts)

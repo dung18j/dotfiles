@@ -53,6 +53,7 @@ require'lspconfig'.tsserver.setup{
     settings = {documentFormatting = true}
 }
 
+require('crates').setup()
 require('rust-tools').setup{
     tools = { -- rust-tools options
         autoSetHints = true,
