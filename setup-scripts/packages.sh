@@ -13,7 +13,10 @@ sudo pacman -S\
     docker\
     docker-compose\
     rustup\
+    dbeaver\
+    postgresql\
     `#Nice to have`\
+    libreoffice-fresh\
     ttf-fira-sans\
     ttf-fira-code\
     exa\
@@ -25,6 +28,16 @@ sudo pacman -S\
     dnsmasq\
     gimp\
     htop
+
+sudo pacman -R\
+    cheese\
+    totem\
+    gnome-books\
+    gnome-maps\
+    gnome-music\
+    gnome-weather\
+    gnome-software\
+    epiphany
 
 yay -S\
     teams\
