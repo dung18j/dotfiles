@@ -18,7 +18,6 @@ local on_attach = function(client, bufnr)
     map('n', 'ga', '<cmd>lua vim.lsp.buf.code_action()<CR>', opts)
     map('n', 'K', '<cmd>lua vim.lsp.buf.hover()<CR>', opts)
     map('n', '<C-k>', '<cmd>lua vim.lsp.buf.signature_help()<CR>', opts)
-    map('n', '<C-j>', '<cmd>lua vim.lsp.diagnostic.show_line_diagnostics()<CR>', opts)
     map('n', '<space>r', '<cmd>lua vim.lsp.buf.rename()<CR>', opts)
     map('n', '<space>ca', '<cmd>lua vim.lsp.buf.code_action()<CR>', opts)
     map('n', '<space>e', '<cmd>lua vim.diagnostic.open_float()<CR>', opts)
@@ -29,8 +28,6 @@ local on_attach = function(client, bufnr)
     map('n', 'g[', '<cmd>lua vim.lsp.diagnostic.goto_prev()<CR>', opts)
     map('n', 'g]', '<cmd>lua vim.lsp.diagnostic.goto_next()<CR>', opts)
 end
-
-
 
 require'lspconfig'.clangd.setup{
     on_attach = on_attach
