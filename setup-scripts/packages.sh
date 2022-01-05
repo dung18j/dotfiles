@@ -13,12 +13,14 @@ sudo pacman -S\
     docker\
     docker-compose\
     rustup\
+    yarn\
     dbeaver\
     postgresql\
     `#Nice to have`\
     libreoffice-fresh\
     ttf-fira-sans\
     ttf-fira-code\
+    noto-fonts-cjk\
     exa\
     bat\
     transmission-cli\
@@ -42,4 +44,5 @@ sudo pacman -R\
 yay -S\
     teams\
     dropbox\
-    ibus-bamboo
+    ibus-bamboo\
+    typescript-language-server-bin
