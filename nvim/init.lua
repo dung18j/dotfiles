@@ -1,10 +1,10 @@
-local user_folder = "/home/"..os.getenv("USER")
+local user_folder = os.getenv("HOME")
 
-dofile(user_folder .. "/.dotfiles/nvim/plugins.lua")
-dofile(user_folder .. "/.dotfiles/nvim/language.lua")
-dofile(user_folder .. "/.dotfiles/nvim/cmp.lua")
-dofile(user_folder .. "/.dotfiles/nvim/tree.lua")
-dofile(user_folder .. "/.dotfiles/nvim/utils.lua")
+dofile(user_folder .. "/.config/nvim/plugins.lua")
+dofile(user_folder .. "/.config/nvim/language.lua")
+dofile(user_folder .. "/.config/nvim/cmp.lua")
+dofile(user_folder .. "/.config/nvim/tree.lua")
+dofile(user_folder .. "/.config/nvim/utils.lua")
 
 -- Nicer UI settings
 vim.opt.cursorline = true
