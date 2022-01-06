@@ -1,13 +1,11 @@
 #!/bin/bash
 
 sudo pacman -S\
-    `#Essential`\
     alacritty\
     tmux\
     fish\
     firefox\
     neovim\
-    `# Programming`\
     lua-language-server\
     rust-analyzer\
     docker\
@@ -16,7 +14,7 @@ sudo pacman -S\
     yarn\
     dbeaver\
     postgresql\
-    `#Nice to have`\
+    sqlx-cli\
     libreoffice-fresh\
     ttf-fira-sans\
     ttf-fira-code\
