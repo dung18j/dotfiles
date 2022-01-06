@@ -17,5 +17,5 @@ setenv WORKSPACE /home/dun/.jdt_workspace/
 
 if status is-interactive
 and not set -q TMUX
-    exec tmux
+    exec tmux -u new -As tmux
 end
