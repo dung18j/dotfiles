@@ -8,7 +8,7 @@ abbr vi nvim
 abbr rmr "rm -r"
 abbr rmrf "rm -rf"
 abbr dark_theme "gsettings set org.gnome.desktop.interface gtk-theme HighContrastInverse"
-abbr light_theme "gsettings set org.gnome.desktop.interface gtk-theme Adwaita"
+abbr light_theme "gsettings set org.gnome.desktop.interface gtk-theme HighContrast"
 
 set fish_prompt_pwd_dir_length 3
 setenv EDITOR nvim
