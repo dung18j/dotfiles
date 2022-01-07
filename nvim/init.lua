@@ -46,5 +46,3 @@ local map = vim.api.nvim_set_keymap
 map('n', 'q:', '<nop>', {noremap = true})
 map('n', 'q', '<nop>', {noremap = true})
 map('n', 'Q', 'q', {noremap = true})
-
-vim.ui.select = require"popui.ui-overrider"
