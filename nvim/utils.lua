@@ -26,4 +26,4 @@ require('nvim-autopairs').setup{}
 -- ident characters
 vim.g.indentLine_char_list = {'▏', '╎', '┆', '┊'}
 
-
+vim.cmd("autocmd FileType * setlocal foldmethod=manual")
