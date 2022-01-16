@@ -1,6 +1,6 @@
 #!/bin/bash
 
-sudo pacman -S\
+sudo pacman --noconfirm -S\
     alacritty\
     tmux\
     fish\
@@ -15,7 +15,6 @@ sudo pacman -S\
     dbeaver\
     postgresql\
     sqlx-cli\
-    libreoffice-fresh\
     ttf-fira-sans\
     ttf-fira-code\
     noto-fonts-cjk\
@@ -29,7 +28,7 @@ sudo pacman -S\
     gimp\
     htop
 
-sudo pacman -R\
+sudo pacman --noconfirm -R\
     cheese\
     totem\
     gnome-books\
@@ -37,7 +36,8 @@ sudo pacman -R\
     gnome-music\
     gnome-weather\
     gnome-software\
-    epiphany
+    epiphany\
+    gnome-terminal
 
 sudo pacman -S --needed git base-devel
 git clone https://aur.archlinux.org/yay-bin.git yay-bin
@@ -46,8 +46,9 @@ makepkg -si
 cd ../
 rm -rf yay-bin
 
-yay -S\
+yay --noconfirm -S\
     teams\
+    freeoffice\
     dropbox\
     ibus-bamboo\
     typescript-language-server-bin
