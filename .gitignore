@@ -1,6 +1,6 @@
 *
 !.gitignore
-!nvim
-!fish
-!alacritty
-!git
+!nvim/
+!fish/
+!alacritty/
+!git/
