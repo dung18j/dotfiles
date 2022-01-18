@@ -1,7 +1,8 @@
-*
 !.gitignore
 !nvim/
 !fish/
 !alacritty/
 !git/
 !ibus-bamboo/
+!user-dirs.dirs
+*
