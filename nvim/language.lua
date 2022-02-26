@@ -27,6 +27,7 @@ local on_attach = function(client, bufnr)
     map('n', '<space>]', '<cmd>lua vim.diagnostic.goto_next()<CR>', opts)
 end
 
+vim.cmd("autocmd FileType c setlocal shiftwidth=2 softtabstop=2 tabstop=2 expandtab")
 require'lspconfig'.clangd.setup{
     on_attach = on_attach
 }
@@ -41,6 +42,16 @@ require'lspconfig'.tsserver.setup{
     root_dir = require'lspconfig'.util.root_pattern("packages.json", "yarn.lock", "lerna.json", ".git"),
     on_attach = on_attach,
     settings = {documentFormatting = true}
+}
+
+vim.cmd("autocmd FileType html setlocal shiftwidth=2 softtabstop=2 tabstop=2 expandtab")
+--Enable (broadcasting) snippet capability for completion
+local capabilities = vim.lsp.protocol.make_client_capabilities()
+capabilities.textDocument.completion.completionItem.snippetSupport = true
+require'lspconfig'.html.setup {
+    cmd = { "vscode-html-languageserver", "--stdio" },
+    capabilities = capabilities,
+    on_attach = on_attach,
 }
 
 vim.cmd("autocmd FileType rust setlocal shiftwidth=4 softtabstop=4 tabstop=4 expandtab")
@@ -71,7 +82,7 @@ require('rust-tools').setup{
                     command = "clippy"
                 },
                 procMacro = {
-                    enable = false,
+                    enable = true,
                 }
             }
         },
@@ -79,6 +90,65 @@ require('rust-tools').setup{
         on_attach = on_attach
     },
 }
+
+local map = vim.api.nvim_set_keymap
+-- Mappings.
+local opts = { noremap=true, silent=true }
+
+-- See `:help vim.lsp.*` for documentation on any of the below functions
+map('n', '<space>b', '<cmd>lua require"dap".toggle_breakpoint()<CR>', opts)
+map('n', '<space>c', '<cmd>lua require"dap".continue()<CR>', opts)
+map('n', '<space>s', '<cmd>lua require"dap".step_over()<CR>', opts)
+map('n', '<space>b', '<cmd>lua require"dap".toggle_breakpoint()<CR>', opts)
+
+map('n','<F5>', '<cmd>lua require"dap".continue()<CR>', opts)
+map('n','<F10>', '<cmd>lua require"dap".step_over()<CR>', opts)
+map('n','<F11>', '<cmd>lua require"dap".step_into()<CR>', opts)
+map('n','<F12>', '<cmd>lua require"dap".step_out()<CR>', opts)
+map('n','<space>b', '<cmd>lua require"dap".toggle_breakpoint()<CR>', opts)
+map('n','<space>B', '<cmd>lua require"dap".set_breakpoint(vim.fn.input("Breakpoint condition: "))<CR>', opts)
+map('n','<space>lp', '<cmd>lua require"dap".set_breakpoint(nil, nil, vim.fn.input("Log point message: ")<CR>', opts)
+map('n','<space>dr', '<cmd>lua require"dap".repl.open()<CR>', opts)
+map('n','<space>dl', '<cmd>lua require"dap".run_last()<CR>', opts)
+
+local dap = require('dap')
+dap.adapters.lldb = {
+  type = 'executable',
+  command = '/usr/bin/lldb-vscode', -- adjust as needed
+  name = "lldb"
+}
+
+dap.configurations.cpp = {
+  {
+    name = "Launch",
+    type = "lldb",
+    request = "launch",
+    program = function()
+      return vim.fn.input('Path to executable: ', vim.fn.getcwd() .. '/', 'file')
+    end,
+    cwd = '${workspaceFolder}',
+    stopOnEntry = false,
+    args = {},
+
+    -- if you change `runInTerminal` to true, you might need to change the yama/ptrace_scope setting:
+    --
+    --    echo 0 | sudo tee /proc/sys/kernel/yama/ptrace_scope
+    --
+    -- Otherwise you might get the following error:
+    --
+    --    Error on launch: Failed to attach to the target process
+    --
+    -- But you should be aware of the implications:
+    -- https://www.kernel.org/doc/html/latest/admin-guide/LSM/Yama.html
+    runInTerminal = false,
+  },
+}
+
+
+-- If you want to use this for rust and c, add something like this:
+
+dap.configurations.c = dap.configurations.cpp
+dap.configurations.rust = dap.configurations.cpp
 
 require'lspconfig'.sumneko_lua.setup{
     cmd = { "lua-language-server" },

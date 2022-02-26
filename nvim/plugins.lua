@@ -17,16 +17,13 @@ Plug 'hrsh7th/vim-vsnip'
 Plug 'saecki/crates.nvim'
 Plug 'rust-lang/rust.vim'
 Plug 'simrat39/rust-tools.nvim'
+Plug 'mfussenegger/nvim-dap'
 
 Plug 'nvim-lua/popup.nvim'
 Plug 'nvim-lua/plenary.nvim'
 
 Plug 'kyazdani42/nvim-web-devicons'
 Plug 'kyazdani42/nvim-tree.lua'
-
-Plug 'mfussenegger/nvim-jdtls'
-
-Plug 'tomlion/vim-solidity'
 
 Plug 'sainnhe/gruvbox-material'
 
