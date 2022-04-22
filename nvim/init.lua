@@ -36,9 +36,8 @@ vim.cmd([[
     if has('termguicolors')
         set termguicolors
     endif
-    let g:gruvbox_material_background = 'medium'
+    colorscheme everforest
     set background=dark
-    colorscheme gruvbox-material
 ]])
 
 -- Some keymap to get rid of mispress

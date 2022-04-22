@@ -25,7 +25,6 @@ Plug 'nvim-lua/plenary.nvim'
 Plug 'kyazdani42/nvim-web-devicons'
 Plug 'kyazdani42/nvim-tree.lua'
 
-Plug 'sainnhe/gruvbox-material'
-
 Plug 'mhinz/vim-signify'
+Plug 'sainnhe/everforest'
 vim.call('plug#end')
