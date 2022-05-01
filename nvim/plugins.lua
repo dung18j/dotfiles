@@ -26,5 +26,7 @@ Plug 'kyazdani42/nvim-web-devicons'
 Plug 'kyazdani42/nvim-tree.lua'
 
 Plug 'mhinz/vim-signify'
-Plug 'sainnhe/everforest'
+
+Plug 'vim-airline/vim-airline'
+
 vim.call('plug#end')
