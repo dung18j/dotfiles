@@ -9,7 +9,11 @@ abbr rmrf "rm -rf"
 
 set fish_prompt_pwd_dir_length 3
 
+setenv EDITOR nvim
+setenv JDTLS_HOME /home/dun/.jdtls
+
 if status is-interactive
 and not set -q TMUX
+and not set -q VIMRUNTIME
     exec tmux -u new -As tmux
 end

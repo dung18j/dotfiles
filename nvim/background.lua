@@ -1,1 +1,1 @@
-vim.cmd("set bg=dark")
+vim.cmd("set bg=light")

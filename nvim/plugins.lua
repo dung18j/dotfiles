@@ -5,7 +5,7 @@ Plug 'numToStr/FTerm.nvim'
 Plug 'Yggdroot/indentLine'
 Plug 'windwp/nvim-autopairs'
 
-Plug('nvim-treesitter/nvim-treesitter', {['do'] = ':TSUpdate'})
+Plug('nvim-treesitter/nvim-treesitter', { ['do'] = ':TSUpdate' })
 Plug 'neovim/nvim-lspconfig'
 Plug 'hrsh7th/nvim-cmp'
 Plug 'hrsh7th/cmp-nvim-lsp'
