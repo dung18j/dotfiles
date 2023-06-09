@@ -1,0 +1,42 @@
+[submodule "nvim/pack/all/start/FTerm.nvim"]
+	path = nvim/pack/all/start/FTerm.nvim
+	url = https://github.com/numToStr/FTerm.nvim
+[submodule "nvim/pack/all/start/nvim-treesitter"]
+	path = nvim/pack/all/start/nvim-treesitter
+	url = https://github.com/nvim-treesitter/nvim-treesitter
+[submodule "nvim/pack/all/start/nvim-lspconfig"]
+	path = nvim/pack/all/start/nvim-lspconfig
+	url = https://github.com/neovim/nvim-lspconfig
+[submodule "nvim/pack/all/start/cmp-nvim-lsp"]
+	path = nvim/pack/all/start/cmp-nvim-lsp
+	url = https://github.com/hrsh7th/cmp-nvim-lsp
+[submodule "nvim/pack/all/start/cmp-vsnip"]
+	path = nvim/pack/all/start/cmp-vsnip
+	url = https://github.com/hrsh7th/cmp-vsnip
+[submodule "nvim/pack/all/start/cmp-path"]
+	path = nvim/pack/all/start/cmp-path
+	url = https://github.com/hrsh7th/cmp-path
+[submodule "nvim/pack/all/start/cmp-buffer"]
+	path = nvim/pack/all/start/cmp-buffer
+	url = https://github.com/hrsh7th/cmp-buffer
+[submodule "nvim/pack/all/start/vim-vsnip"]
+	path = nvim/pack/all/start/vim-vsnip
+	url = https://github.com/hrsh7th/vim-vsnip
+[submodule "nvim/pack/all/start/crates.nvim"]
+	path = nvim/pack/all/start/crates.nvim
+	url = https://github.com/saecki/crates.nvim
+[submodule "nvim/pack/all/start/rust.vim"]
+	path = nvim/pack/all/start/rust.vim
+	url = https://github.com/rust-lang/rust.vim
+[submodule "nvim/pack/all/start/popup.nvim"]
+	path = nvim/pack/all/start/popup.nvim
+	url = https://github.com/nvim-lua/popup.nvim
+[submodule "nvim/pack/all/start/nvim-web-devicons"]
+	path = nvim/pack/all/start/nvim-web-devicons
+	url = https://github.com/kyazdani42/nvim-web-devicons
+[submodule "nvim/pack/all/start/nvim-tree.lua"]
+	path = nvim/pack/all/start/nvim-tree.lua
+	url = https://github.com/kyazdani42/nvim-tree.lua
+[submodule "nvim/pack/all/start/vim-signify"]
+	path = nvim/pack/all/start/vim-signify
+	url = https://github.com/mhinz/vim-signify
