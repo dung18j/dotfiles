@@ -40,3 +40,12 @@
 [submodule "nvim/pack/all/start/vim-signify"]
 	path = nvim/pack/all/start/vim-signify
 	url = https://github.com/mhinz/vim-signify
+[submodule "nvim/pack/all/start/nvim-cmp"]
+	path = nvim/pack/all/start/nvim-cmp
+	url = https://github.com/hrsh7th/nvim-cmp
+[submodule "nvim/pack/all/start/plenary.nvim"]
+	path = nvim/pack/all/start/plenary.nvim
+	url = https://github.com/nvim-lua/plenary.nvim
+[submodule "nvim/pack/all/start/nvim-autopairs"]
+	path = nvim/pack/all/start/nvim-autopairs
+	url = https://github.com/windwp/nvim-autopairs

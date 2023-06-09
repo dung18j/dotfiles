@@ -1,11 +1,12 @@
 local user_folder = os.getenv("HOME")
 
-dofile(user_folder .. "/.config/nvim/plugins.lua")
 dofile(user_folder .. "/.config/nvim/language.lua")
 dofile(user_folder .. "/.config/nvim/cmp.lua")
 dofile(user_folder .. "/.config/nvim/tree.lua")
-dofile(user_folder .. "/.config/nvim/background.lua")
 
+vim.cmd("set ls=1")
+vim.cmd("set bg=light")
+vim.cmd("set clipboard+=unnamedplus")
 -- Monochrome syntax
 vim.cmd [[
     hi BoldText cterm=bold
@@ -83,15 +84,15 @@ local opts = { noremap = true, silent = true }
 map('n', '<C-a>', '<CMD>lua require("FTerm").toggle()<CR>', opts)
 map('t', '<C-a>', '<C-\\><C-n><CMD>lua require("FTerm").toggle()<CR>', opts)
 
-require 'nvim-treesitter.configs'.setup {
-    ensure_installed = 'all',
-    highlight = {
-        enable = true,
-    },
-    autotag = {
-        enable = true,
-    },
-}
+--require 'nvim-treesitter.configs'.setup {
+--    ensure_installed = 'all',
+--    highlight = {
+--        enable = true,
+--    },
+--    autotag = {
+--        enable = true,
+--    },
+--}
 
 require('nvim-autopairs').setup {}
 

@@ -9,8 +9,9 @@ abbr rmrf "rm -rf"
 
 set fish_prompt_pwd_dir_length 3
 
-setenv EDITOR nvim
-setenv JDTLS_HOME /home/dun/.jdtls
+setenv EDITOR           nvim
+setenv JDTLS_HOME       /home/dun/.jdtls
+setenv CARGO_TARGET_DIR /home/dun/.ctarget/
 
 if status is-interactive
 and not set -q TMUX
