@@ -4,9 +4,11 @@ dofile(user_folder .. "/.config/nvim/language.lua")
 dofile(user_folder .. "/.config/nvim/cmp.lua")
 dofile(user_folder .. "/.config/nvim/tree.lua")
 
+vim.cmd("helptags ALL")
 vim.cmd("set ls=1")
 vim.cmd("set bg=light")
 vim.cmd("set clipboard+=unnamedplus")
+
 -- Monochrome syntax
 vim.cmd [[
     hi BoldText cterm=bold
@@ -79,24 +81,12 @@ require 'FTerm'.setup({
     },
 })
 
--- Example keybindings
 local opts = { noremap = true, silent = true }
 map('n', '<C-a>', '<CMD>lua require("FTerm").toggle()<CR>', opts)
 map('t', '<C-a>', '<C-\\><C-n><CMD>lua require("FTerm").toggle()<CR>', opts)
 
---require 'nvim-treesitter.configs'.setup {
---    ensure_installed = 'all',
---    highlight = {
---        enable = true,
---    },
---    autotag = {
---        enable = true,
---    },
---}
-
 require('nvim-autopairs').setup {}
 
--- ident characters
 vim.g.indentLine_char_list = { '▏', '╎', '┆', '┊' }
 
 vim.cmd("autocmd FileType * setlocal foldmethod=manual")
