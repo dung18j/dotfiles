@@ -49,3 +49,6 @@
 [submodule "nvim/pack/all/start/nvim-autopairs"]
 	path = nvim/pack/all/start/nvim-autopairs
 	url = https://github.com/windwp/nvim-autopairs
+[submodule "nvim/pack/all/start/vimtex"]
+	path = nvim/pack/all/start/vimtex
+	url = https://github.com/lervag/vimtex
