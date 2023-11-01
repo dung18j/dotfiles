@@ -61,7 +61,7 @@ window:
   # Values for `decorations` (macOS only):
   #     - transparent: Title bar, transparent background and title bar buttons
   #     - buttonless: Title bar, transparent background and no title bar buttons
-  decorations: none
+  decorations: full
 
   # Startup Mode (changes require restart)
   #
@@ -179,7 +179,6 @@ font:
   #use_thin_strokes: false
 
 # If `true`, bold text is drawn using the bright color variants.
-#draw_bold_text_with_bright_colors: *prefer-dark
 
 schemes:
   white_on_black: &prefer-dark
@@ -187,7 +186,6 @@ schemes:
       background: '0x001b26'
       foreground: '0xe3e4e6'
 
-    # Normal colors
     normal:
       black:   '0x073642'
       red:     '0xdc322f'
@@ -198,7 +196,6 @@ schemes:
       cyan:    '0x2aa198'
       white:   '0xeee8d5'
 
-    # Bright colors
     bright:
       black:   '0x002b36'
       red:     '0xcb4b16'
@@ -230,7 +227,7 @@ schemes:
       magenta: '#df69ba'
       cyan:    '#35a77c'
       white:   '#dfddc8'
-colors: *prefer-dark
+colors: *default
 
 # Bell
 #

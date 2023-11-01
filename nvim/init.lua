@@ -5,7 +5,7 @@ dofile(user_folder .. "/.config/nvim/cmp.lua")
 dofile(user_folder .. "/.config/nvim/tree.lua")
 
 vim.cmd("helptags ALL")
-vim.cmd("set ls=1")
+-- vim.cmd("set ls=1")
 vim.cmd("set bg=light")
 vim.cmd("set clipboard=unnamedplus")
 

@@ -16,5 +16,5 @@ setenv CARGO_TARGET_DIR /home/dun/.ctarget/
 if status is-interactive
 and not set -q TMUX
 and not set -q VIMRUNTIME
-    exec tmux -u new -As tmux
+	exec tmux -u new -As tmux
 end
