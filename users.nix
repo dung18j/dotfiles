@@ -15,6 +15,7 @@
       packages = with pkgs; [
         firefox
         alacritty
+        rawtherapee
         neovim
         wget
         git
