@@ -13,6 +13,8 @@ setenv EDITOR           nvim
 setenv JDTLS_HOME       /home/dun/.jdtls
 setenv CARGO_TARGET_DIR /home/dun/.ctarget/
 
+direnv hook fish | source
+
 if status is-interactive
 and not set -q TMUX
 and not set -q VIMRUNTIME

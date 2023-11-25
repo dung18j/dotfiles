@@ -76,7 +76,9 @@ require 'lspconfig'.rust_analyzer.setup {
         }
     }
 }
-
+require'lspconfig'.nixd.setup{
+    on_attach = on_attach
+}
 require 'lspconfig'.lua_ls.setup {
     cmd = { "lua-language-server" },
     filetypes = { "lua" },
