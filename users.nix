@@ -16,6 +16,7 @@
         firefox
         alacritty
         rawtherapee
+        vlc
         neovim
         wget
         git
