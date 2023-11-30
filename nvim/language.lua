@@ -2,6 +2,7 @@ vim.o.completeopt = "menu,menuone,noselect"
 vim.g.rustfmt_autosave = true
 
 vim.cmd("autocmd FileType c setlocal shiftwidth=2 softtabstop=2 tabstop=2 expandtab")
+vim.cmd("autocmd FileType nix setlocal shiftwidth=2 softtabstop=2 tabstop=2 expandtab")
 vim.cmd("autocmd FileType javascript setlocal shiftwidth=2 softtabstop=2 tabstop=2 expandtab")
 vim.cmd("autocmd FileType sql setlocal shiftwidth=4 softtabstop=4 tabstop=4 expandtab")
 vim.cmd("autocmd FileType javascript setlocal shiftwidth=2 softtabstop=2 tabstop=2 expandtab")
@@ -76,7 +77,7 @@ require 'lspconfig'.rust_analyzer.setup {
         }
     }
 }
-require'lspconfig'.nixd.setup{
+require'lspconfig'.rnix.setup{
     on_attach = on_attach
 }
 require 'lspconfig'.lua_ls.setup {

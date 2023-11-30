@@ -5,7 +5,7 @@
     wget
     git
     tmux
-    exa
+    eza
     rustup
     tailscale
     virt-manager
