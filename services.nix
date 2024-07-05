@@ -2,9 +2,9 @@
 {
   services = {
     openssh = {
-        enable = true;
-        settings.PasswordAuthentication = false;
-        settings.KbdInteractiveAuthentication = false;
+      enable = true;
+      settings.PasswordAuthentication = false;
+      settings.KbdInteractiveAuthentication = false;
     };
     tailscale.enable = true;
     xserver = {
@@ -20,9 +20,13 @@
       #jack.enable = true;
     };
     xserver = {
-      layout = "us";
-      xkbVariant = "";
+      xkb = {
+        layout = "us";
+        variant = "";
+      };
     };
+    gnome.tracker-miners.enable = false;
+    gnome.tracker.enable = false;
     udev.extraRules = ''
       ACTION!="add|change|move", GOTO="mm_usb_device_blacklist_end"
       SUBSYSTEM!="usb", GOTO="mm_usb_device_blacklist_end"

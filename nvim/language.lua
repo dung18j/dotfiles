@@ -54,7 +54,7 @@ require 'lspconfig'.tsserver.setup {
 local capabilities = vim.lsp.protocol.make_client_capabilities()
 capabilities.textDocument.completion.completionItem.snippetSupport = true
 require 'lspconfig'.html.setup {
-    cmd = { "vscode-html-languageserver", "--stdio" },
+    cmd = { "vscode-html-language-server", "--stdio" },
     filetypes = { "html", "htmldjango" },
     capabilities = capabilities,
     on_attach = on_attach,
@@ -77,7 +77,7 @@ require 'lspconfig'.rust_analyzer.setup {
         }
     }
 }
-require'lspconfig'.rnix.setup{
+require 'lspconfig'.nixd.setup {
     on_attach = on_attach
 }
 require 'lspconfig'.lua_ls.setup {

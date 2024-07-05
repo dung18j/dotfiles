@@ -3,3 +3,5 @@
 	name = Phạm Văn Dũng
 [init]
 	defaultBranch = main
+[core]
+	compression = 0

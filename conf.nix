@@ -6,9 +6,6 @@
         systemd-boot.enable = true;
         efi.canTouchEfiVariables = true;
     };
-    kernel.sysctl = {
-        "net.ipv4.ip_default_ttl" = 65;
-    };
   };
 
   networking = {
@@ -23,6 +20,17 @@
       enabled = "ibus";
       ibus.engines = with pkgs.ibus-engines; [ bamboo ];
     };
+    extraLocaleSettings = {
+      LC_ADDRESS = "en_US.UTF-8";
+      LC_IDENTIFICATION = "en_US.UTF-8";
+      LC_MEASUREMENT = "en_US.UTF-8";
+      LC_MONETARY = "en_US.UTF-8";
+      LC_NAME = "en_US.UTF-8";
+      LC_NUMERIC = "en_US.UTF-8";
+      LC_PAPER = "en_US.UTF-8";
+      LC_TELEPHONE = "en_US.UTF-8";
+      LC_TIME = "en_US.UTF-8";
+    };
   };
 
   virtualisation = {
@@ -30,7 +38,7 @@
     spiceUSBRedirection.enable = true;
   };
 
-  #systemd.services.NetworkManager-wait-online.enable = false;
+  systemd.services.NetworkManager-wait-online.enable = false;
 
   time.timeZone = "Asia/Ho_Chi_Minh";
 
@@ -39,5 +47,5 @@
   security.rtkit.enable = true;
   
 
-  system.stateVersion = "23.05"; # Did you read the comment?
+  system.stateVersion = "24.05"; # Did you read the comment?
 }

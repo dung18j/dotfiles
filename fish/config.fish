@@ -6,12 +6,14 @@ abbr vim nvim
 abbr vi nvim
 abbr rmr "rm -r"
 abbr rmrf "rm -rf"
+abbr sudo doas
 
 set fish_prompt_pwd_dir_length 3
 
 setenv EDITOR           nvim
-setenv JDTLS_HOME       /home/dun/.jdtls
-setenv CARGO_TARGET_DIR /home/dun/.ctarget/
+setenv ESP_IDF_TOOLS_INSTALL_DIR global
+#setenv JDTLS_HOME       /home/dun/.jdtls
+#setenv CARGO_TARGET_DIR /home/dun/.ctarget
 
 direnv hook fish | source
 
