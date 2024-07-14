@@ -44,6 +44,8 @@
 
   sound.enable = true;
   hardware.pulseaudio.enable = false;
+  hardware.opengl.enable = true;
+
   security.rtkit.enable = true;
   
 
