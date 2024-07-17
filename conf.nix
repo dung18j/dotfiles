@@ -68,6 +68,12 @@
   
     };
   };  
+  systemd.sleep.extraConfig = ''
+    AllowSuspend=yes
+    AllowHibernation=no
+    AllowHybridSleep=no
+    AllowSuspendThenHibernate=no
+  '';
 
   system.stateVersion = "24.05"; # Did you read the comment?
 }
