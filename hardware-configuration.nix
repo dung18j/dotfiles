@@ -24,6 +24,11 @@
       options = [ "fmask=0022" "dmask=0022" ];
     };
   
+  fileSystems."/data" = { 
+      device = "/dev/disk/by-label/data";
+      fsType = "ext4";
+  };
+  
   swapDevices = [ {
     device = "/var/lib/swapfile";
     size = 16*1024;

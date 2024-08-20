@@ -6,7 +6,7 @@
     users.dun = {
       isNormalUser = true;
       description = "dun";
-      extraGroups = [ "networkmanager" "wheel" "libvirtd" "qemu-libvirtd" "kvm"];
+      extraGroups = [ "networkmanager" "wheel" "libvirtd" "qemu-libvirtd" "kvm" "dialout" "plugdev"];
       initialPassword = "1";
       openssh.authorizedKeys.keys = [
         "ssh-ed25519 AAAAC3NzaC1lZDI1NTE5AAAAIEhFdmGsgSWcGab8mnNzpnASvdrNGovbFeE2e2e32VOR dun"

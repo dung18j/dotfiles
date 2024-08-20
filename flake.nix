@@ -23,13 +23,9 @@
               imports =
                 [
                   ./hardware-configuration.nix
-                  ./conf.nix
+                  ./configuration.nix
                   ./users.nix
                   ./packages.nix
-                  ./services.nix
-                  ./nix.nix
-                  ./fonts.nix
-                  ./fs.nix
                 ];
             })
         ];

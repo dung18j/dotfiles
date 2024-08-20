@@ -1,5 +1,6 @@
 {config, pkgs, ...}:
 {
+  
   environment.systemPackages = with pkgs; [
     vim
     wget
@@ -19,6 +20,29 @@
     texliveFull
     texstudio
     biber
+    direnv
+    gcc
+    clang
+    cmake
+  
+    iperf3
+    espflash
+    flip-link
+    cargo-generate
+    sigrok-cli
+    pulseview
+    picocom
+
+    vmware-horizon-client
+    file
+    usbutils
+    probe-rs
+    pkg-config
+    texstudio
+    doas
+    
+    nixd
+    lua-language-server
   ];
  
   programs.dconf = {
@@ -31,7 +55,11 @@
   programs.neovim = {
     enable = true;
     defaultEditor = true;
+    viAlias = true;
+    vimAlias = true;
   };
+
+  programs.fish.enable = true;
 
   programs.bash = {
     interactiveShellInit = ''
@@ -46,6 +74,39 @@
   programs.tmux = {
     enable = true;
     clock24 = true;
+  };
+  
+  fonts = {
+    packages = with pkgs; [
+      noto-fonts
+      noto-fonts-cjk
+      noto-fonts-emoji
+      liberation_ttf
+      fira-code
+      fira-code-symbols
+      dina-font
+      nerdfonts
+    ];
+  };
+
+  nixpkgs = {
+    config.allowUnfree = true;
+  };
+
+  nix = {
+    package = pkgs.nixFlakes;
+    settings = {
+      experimental-features = [ "nix-command" "flakes" ];
+    };
+    gc = {
+      automatic = true;
+      dates = "weekly";
+      options = "--delete-older-than 7d --max-freed $((64 * 1024**3))";
+    };
+    optimise = {
+      automatic = true;
+      dates = [ "weekly" ];
+    };
   };
 
  
