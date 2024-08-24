@@ -2,11 +2,9 @@ abbr l exa
 abbr ls exa
 abbr la "exa -a"
 abbr ll "exa -l"
-abbr vim nvim
-abbr vi nvim
 abbr rmr "rm -r"
 abbr rmrf "rm -rf"
-abbr sudo doas
+abbr vim nvim
 
 set fish_prompt_pwd_dir_length 3
 

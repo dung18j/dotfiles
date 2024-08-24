@@ -1,7 +1,7 @@
 live_config_reload = true
 
 import = [
-  "~/.config/alacritty/themes/default.toml"
+  "~/.config/alacritty/themes/prefer-dark.toml"
 ]
 
 

@@ -9,9 +9,28 @@
   };
 
   services = {
+    xinetd.enable = true;
+    xinetd.services = [
+      {
+        name = "tftp";
+        port = 69;
+        protocol = "udp";
+        user = "root";
+        server = "${pkgs.tftp-hpa}/bin/in.tftpd";
+        serverArgs = "/tftpboot/ -s -v";
+        extraConfig = ''
+          per_source = 1
+          cps        = 100 2
+          flags      = IPv4
+        '';
+      }
+    ];
     logind = {
       extraConfig = "HandlePowerKey=suspend";
       lidSwitch = "suspend"; 
+      lidSwitchDocked = "suspend";
+      lidSwitchExternalPower = "suspend";
+      powerKey = "suspend";
     };
     openssh = {
       enable = true;
@@ -29,7 +48,6 @@
       alsa.enable = true;
       alsa.support32Bit = true;
       pulse.enable = true;
-      #jack.enable = true;
     };
     xserver = {
       xkb = {
@@ -45,18 +63,12 @@
         text = builtins.readFile ./69-probe-rs.rules;
         destination = "/etc/udev/rules.d/69-probe-rs.rules";
       })
-      (pkgs.writeTextFile {
-        name = "logic2-rules";
-        text = builtins.readFile ./90-logic2.rules;
-        destination = "/etc/udev/rules.d/90-logic2.rules";
-      })
     ];
-    udev.extraRules = builtins.readFile ./99-vincss.rules;
-    #printing.enable = true;
   };
   networking = {
     hostName = "e490";
     networkmanager.enable = true;
+    firewall.enable = false;
   };
 
   i18n = {
@@ -106,7 +118,7 @@
           CPU_MIN_PERF_ON_AC = 0;
           CPU_MAX_PERF_ON_AC = 100;
           CPU_MIN_PERF_ON_BAT = 0;
-          CPU_MAX_PERF_ON_BAT = 20;
+          CPU_MAX_PERF_ON_BAT = 50;
   
          #Optional helps save long term battery health
          START_CHARGE_THRESH_BAT0 = 60; # 40 and bellow it starts to charge

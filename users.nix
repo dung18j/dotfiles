@@ -1,6 +1,5 @@
 { config, pkgs, ... }:
 {
-  # Define a user account. Don't forget to set a password with ‘passwd’.
   users = {
     mutableUsers = true;
     users.dun = {
@@ -18,15 +17,48 @@
         rawtherapee
         vlc
         neovim
+        rustup
+        exiftool
+    
+        vim
         wget
         git
         tmux
         eza
-        rustup
         tailscale
         virt-manager
         virtiofsd
-        exiftool
+        gdk-pixbuf
+        speechd
+        
+        vscode
+        gimp
+        texliveFull
+        texstudio
+        biber
+        direnv
+        gcc
+        clang
+        cmake
+  
+        iperf3
+        espflash
+        flip-link
+        cargo-generate
+        sigrok-cli
+        pulseview
+        picocom
+
+        vmware-horizon-client
+        file
+        usbutils
+        probe-rs
+        pkg-config
+        texstudio
+        doas
+        
+        nixd
+        lua-language-server
       ];
     };
   };
