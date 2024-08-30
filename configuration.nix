@@ -1,4 +1,4 @@
-{ config, pkgs, ... }:
+{pkgs, ... }:
 {
   # Bootloader.
   boot = {
@@ -40,7 +40,6 @@
     #  };
     #};
     logind = {
-      extraConfig = "HandlePowerKey=suspend";
       lidSwitch = "suspend"; 
       lidSwitchDocked = "suspend";
       lidSwitchExternalPower = "suspend";
@@ -55,6 +54,7 @@
     xserver = {
       enable = true;
       displayManager.gdm.enable = true;
+      displayManager.gdm.autoSuspend = false;
       desktopManager.gnome.enable = true;
     };
     pipewire = {

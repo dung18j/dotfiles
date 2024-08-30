@@ -1,4 +1,4 @@
-{ config, pkgs, ... }:
+{pkgs, ... }:
 {
   users = {
     mutableUsers = true;
@@ -8,8 +8,7 @@
       extraGroups = [ "networkmanager" "wheel" "libvirtd" "qemu-libvirtd" "kvm" "dialout" "plugdev"];
       initialPassword = "1";
       openssh.authorizedKeys.keys = [
-        "ssh-ed25519 AAAAC3NzaC1lZDI1NTE5AAAAIEhFdmGsgSWcGab8mnNzpnASvdrNGovbFeE2e2e32VOR dun"
-        "ssh-ed25519 AAAAC3NzaC1lZDI1NTE5AAAAIEnXaWIDs9P3PTfJfI1mv7KD0cppoeObD/MA7R8nJ92V u0_a419@localhost"
+        "ssh-ed25519 AAAAC3NzaC1lZDI1NTE5AAAAIF0HlKHrsmTtRpA77+TOINuolA/W1qo6zn7A3zLSJPoV u0_a348@localhost"
       ];
       packages = with pkgs; [
         firefox
