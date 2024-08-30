@@ -72,8 +72,8 @@ map('n', 'q:', '<nop>', { noremap = true })
 map('n', 'q', '<nop>', { noremap = true })
 map('n', 'Q', 'q', { noremap = true })
 
-
 require 'FTerm'.setup({
+    cmd        = vim.o.shell,
     border     = 'single',
     dimensions = {
         height = 0.9,

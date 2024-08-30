@@ -9,22 +9,36 @@
   };
 
   services = {
-    xinetd.enable = true;
-    xinetd.services = [
-      {
-        name = "tftp";
-        port = 69;
-        protocol = "udp";
-        user = "root";
-        server = "${pkgs.tftp-hpa}/bin/in.tftpd";
-        serverArgs = "/tftpboot/ -s -v";
-        extraConfig = ''
-          per_source = 1
-          cps        = 100 2
-          flags      = IPv4
-        '';
-      }
-    ];
+    #xinetd.enable = true;
+    #xinetd.services = [
+    #  {
+    #    name = "tftp";
+    #    port = 69;
+    #    protocol = "udp";
+    #    user = "root";
+    #    server = "${pkgs.tftp-hpa}/bin/in.tftpd";
+    #    serverArgs = "/tftpboot/ -s -v";
+    #    extraConfig = ''
+    #      per_source = 1
+    #      cps        = 100 2
+    #      flags      = IPv4
+    #    '';
+    #  }
+    #];
+    #samba = {
+    #  enable = true;
+    #  securityType = "user";
+    #  openFirewall = true;
+    #  shares = {
+    #    public = {
+    #      path = "/srv/public";
+    #      "read only" = true;
+    #      browseable = "yes";
+    #      "guest ok" = "yes";
+    #      comment = "Public samba share.";
+    #    };
+    #  };
+    #};
     logind = {
       extraConfig = "HandlePowerKey=suspend";
       lidSwitch = "suspend"; 
@@ -64,6 +78,7 @@
         destination = "/etc/udev/rules.d/69-probe-rs.rules";
       })
     ];
+    udev.extraRules = builtins.readFile ./99-adafruit-boards.rules; 
   };
   networking = {
     hostName = "e490";

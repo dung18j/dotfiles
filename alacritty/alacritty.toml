@@ -1,35 +1,8 @@
 live_config_reload = true
 
 import = [
-  "~/.config/alacritty/themes/prefer-dark.toml"
+  "~/.config/alacritty/themes/default.toml"
 ]
-
-
-#[colors.bright]
-#black = "#5c6a72"
-#blue = "#3a94c5"
-#cyan = "#35a77c"
-#green = "#8da101"
-#magenta = "#df69ba"
-#red = "#f85552"
-#white = "#dfddc8"
-#yellow = "#dfa000"
-#
-#[colors.normal]
-#black = "#5c6a72"
-#blue = "#3a94c5"
-#cyan = "#35a77c"
-#green = "#8da101"
-#magenta = "#df69ba"
-#red = "#f85552"
-#white = "#dfddc8"
-#yellow = "#dfa000"
-#
-#[colors.primary]
-#background = "#ffffff"
-#foreground = "#000000"
-##background = "#000000"
-##foreground = "#ffffff"
 
 [cursor]
 blink_interval = 750
@@ -44,7 +17,7 @@ shape = "Block"
 TERM = "alacritty"
 
 [font]
-size = 11.0
+size = 9.5
 
 [font.bold]
 family = "Fira Code"
@@ -67,7 +40,7 @@ x = 0
 y = 0
 
 [mouse]
-hide_when_typing = true
+hide_when_typing = false
 
 [[mouse.bindings]]
 action = "PasteSelection"
@@ -79,8 +52,8 @@ semantic_escape_chars = ",│`|:\"' ()[]{}<>\t"
 
 [window]
 decorations = "full"
-dynamic_padding = false
-opacity = 0.9
+dynamic_padding = true
+opacity = 1.0
 startup_mode = "Windowed"
 
 [window.class]

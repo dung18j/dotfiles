@@ -1,6 +1,0 @@
-# VinCSS FIDO2 Touch 1
-SUBSYSTEM=="hidraw", ATTRS{idVendor}=="0483", ATTRS{idProduct}=="a2ca", TAG+="uaccess"
-# VinCSS FIDO2 VOS Aris Pro
-SUBSYSTEM=="hidraw", ATTRS{idVendor}=="18d1", ATTRS{idProduct}=="4ee1", TAG+="uaccess"
-# VinCSS FIDO2 VOS Aris
-SUBSYSTEM=="hidraw", ATTRS{idVendor}=="18d1", ATTRS{idProduct}=="4ee7", TAG+="uaccess"

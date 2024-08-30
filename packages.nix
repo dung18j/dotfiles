@@ -36,6 +36,7 @@
     vmware-horizon-client
     file
     usbutils
+    cargo-hf2
     probe-rs
     pkg-config
     texstudio
