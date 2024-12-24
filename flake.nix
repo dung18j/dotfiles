@@ -24,8 +24,6 @@
                 [
                   ./hardware-configuration.nix
                   ./configuration.nix
-                  ./users.nix
-                  ./packages.nix
                 ];
             })
         ];

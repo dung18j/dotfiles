@@ -6,39 +6,34 @@ dofile(user_folder .. "/.config/nvim/tree.lua")
 
 vim.cmd("helptags ALL")
 -- vim.cmd("set ls=1")
-vim.cmd("set bg=light")
 vim.cmd("set clipboard=unnamedplus")
+vim.cmd("set notermguicolors")
 
 -- Monochrome syntax
 vim.cmd [[
-    hi BoldText cterm=bold
+    hi Normal       ctermfg=none ctermbg=none
+    hi Comment      cterm=italic ctermfg=blue ctermbg=none
+    hi Statement    cterm=bold
+    hi Special      cterm=bold
+    hi Type         cterm=bold
+    hi Function     ctermfg=none ctermbg=none
+    hi Identifier   ctermfg=none ctermbg=none
+    hi Constant     ctermfg=none ctermbg=none
+    hi PreProc      ctermfg=none ctermbg=none
 
-    hi! link Statement  BoldText
-    hi! link Special    BoldText
-    hi! link Type       BoldText
-    hi! link Identifier Normal
-    hi! link Constant   Normal
-    hi! link Normal     Normal
-    hi! link PreProc    Normal
-    hi Pmenu            ctermfg=0 ctermbg=225 guibg=LightMagenta
-    hi PmenuSel         ctermfg=0 ctermbg=7 guibg=Grey
-    hi PmenuSbar        ctermbg=248 guibg=Grey
-    hi PmenuThumb       ctermbg=0 guibg=Black
-    "hi Pmenu            ctermfg=255 ctermbg=244
-    "hi PmenuSel         ctermfg=black ctermbg=225
-    "hi PmenuSbar        ctermbg=248
-    "hi PmenuThumb       ctermbg=grey
+    hi Pmenu        ctermfg=0 ctermbg=225
+    hi PmenuSel     ctermfg=0 ctermbg=7
+    hi PmenuSbar    ctermbg=248
+    hi PmenuThumb   ctermbg=0
 
-    hi Comment          cterm=italic ctermfg=21
-    hi Normal           ctermbg=none
-    hi SignColumn       ctermbg=none
-    hi Visual           cterm=none ctermbg=247
-    hi CursorLine       cterm=none ctermbg=none
-    hi CursorLineNr     cterm=none ctermfg=red ctermbg=none
-    hi DiffAdd          ctermbg=none
-    hi DiffChange       ctermbg=none
-    hi DiffDelete       ctermbg=none
-    hi DiffText         ctermbg=none
+    hi SignColumn   ctermbg=none
+    hi Visual       cterm=none ctermbg=247
+    hi CursorLine   cterm=none ctermbg=none
+    hi CursorLineNr cterm=none ctermfg=red ctermbg=none
+    hi DiffAdd      ctermbg=none
+    hi DiffChange   ctermbg=none
+    hi DiffDelete   ctermbg=none
+    hi DiffText     ctermbg=none
 ]]
 
 -- Nicer UI settings

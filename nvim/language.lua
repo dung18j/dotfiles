@@ -24,6 +24,9 @@ local on_attach = function(client, bufnr)
     map('n', 'g0', '<cmd>lua vim.lsp.buf.document_symbol()<CR>', opts)
     map('n', 'gW', '<cmd>lua vim.lsp.buf.workspace_symbol()<CR>', opts)
     map('n', 'ga', '<cmd>lua vim.lsp.buf.code_action()<CR>', opts)
+    map('n', 'gf', '<cmd>lua vim.lsp.buf.format()<CR>', opts)
+    map('n', 'g[', '<cmd>lua vim.diagnostic.goto_prev()<CR>', opts)
+    map('n', 'g]', '<cmd>lua vim.diagnostic.goto_next()<CR>', opts)
     map('n', '<space>h', '<cmd>lua vim.lsp.buf.hover()<CR>', opts)
     map('n', '<space>k', '<cmd>lua vim.lsp.buf.signature_help()<CR>', opts)
     map('n', '<space>r', '<cmd>lua vim.lsp.buf.rename()<CR>', opts)
@@ -66,7 +69,7 @@ require 'lspconfig'.rust_analyzer.setup {
     settings = {
         ['rust-analyzer'] = {
             diagnostics = {
-                enable = false,
+                enable = true,
             },
             checkOnSave = {
                 command = "clippy"
