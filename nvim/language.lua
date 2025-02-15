@@ -1,6 +1,10 @@
 vim.o.completeopt = "menu,menuone,noselect"
 vim.g.rustfmt_autosave = true
 
+require('nvim-autopairs').setup {}
+
+vim.cmd("autocmd FileType * setlocal foldmethod=manual")
+
 vim.cmd("autocmd FileType c setlocal shiftwidth=2 softtabstop=2 tabstop=2 expandtab")
 vim.cmd("autocmd FileType nix setlocal shiftwidth=2 softtabstop=2 tabstop=2 expandtab")
 vim.cmd("autocmd FileType javascript setlocal shiftwidth=2 softtabstop=2 tabstop=2 expandtab")

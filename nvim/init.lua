@@ -52,7 +52,6 @@ vim.opt.scrolloff = 3
 
 -- Performance
 vim.opt.lazyredraw = true;
-vim.opt.shell = "fish"
 vim.opt.shadafile = "NONE"
 
 -- Enable mouse
@@ -67,21 +66,4 @@ map('n', 'q:', '<nop>', { noremap = true })
 map('n', 'q', '<nop>', { noremap = true })
 map('n', 'Q', 'q', { noremap = true })
 
-require 'FTerm'.setup({
-    cmd        = vim.o.shell,
-    border     = 'single',
-    dimensions = {
-        height = 0.9,
-        width = 0.9,
-    },
-})
-
-local opts = { noremap = true, silent = true }
-map('n', '<C-a>', '<CMD>lua require("FTerm").toggle()<CR>', opts)
-map('t', '<C-a>', '<C-\\><C-n><CMD>lua require("FTerm").toggle()<CR>', opts)
-
-require('nvim-autopairs').setup {}
-
 vim.g.indentLine_char_list = { '▏', '╎', '┆', '┊' }
-
-vim.cmd("autocmd FileType * setlocal foldmethod=manual")
