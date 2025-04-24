@@ -67,3 +67,16 @@ map('n', 'q', '<nop>', { noremap = true })
 map('n', 'Q', 'q', { noremap = true })
 
 vim.g.indentLine_char_list = { '▏', '╎', '┆', '┊' }
+
+require 'FTerm'.setup({
+    cmd        = vim.o.shell,
+    border     = 'single',
+    dimensions = {
+        height = 0.9,
+        width = 0.9,
+    },
+})
+
+local opts = { noremap = true, silent = true }
+map('n', '<C-a>', '<CMD>lua require("FTerm").toggle()<CR>', opts)
+map('t', '<C-a>', '<C-\\><C-n><CMD>lua require("FTerm").toggle()<CR>', opts)

@@ -6,6 +6,8 @@ require('nvim-autopairs').setup {}
 vim.cmd("autocmd FileType * setlocal foldmethod=manual")
 
 vim.cmd("autocmd FileType c setlocal shiftwidth=2 softtabstop=2 tabstop=2 expandtab")
+vim.cmd("autocmd FileType cc setlocal shiftwidth=2 softtabstop=2 tabstop=2 expandtab")
+vim.cmd("autocmd FileType cpp setlocal shiftwidth=2 softtabstop=2 tabstop=2 expandtab")
 vim.cmd("autocmd FileType nix setlocal shiftwidth=2 softtabstop=2 tabstop=2 expandtab")
 vim.cmd("autocmd FileType javascript setlocal shiftwidth=2 softtabstop=2 tabstop=2 expandtab")
 vim.cmd("autocmd FileType sql setlocal shiftwidth=4 softtabstop=4 tabstop=4 expandtab")
@@ -50,7 +52,7 @@ require 'lspconfig'.jdtls.setup {
     on_attach = on_attach
 }
 
-require 'lspconfig'.tsserver.setup {
+require 'lspconfig'.ts_ls.setup {
     root_dir = require 'lspconfig'.util.root_pattern("packages.json", "yarn.lock", "lerna.json", ".git"),
     on_attach = on_attach,
     filetypes = { "javascript", "javascriptreact", "javascript.jsx", "typescript", "typescriptreact", "typescript.tsx" },
