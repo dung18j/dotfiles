@@ -111,11 +111,12 @@ if ! shopt -oq posix; then
     . /etc/bash_completion
   fi
 fi
-
-command -v tmux > /dev/null && test ! $TMUX && exec tmux -f /dev/null new-session -As main
-
-. "$HOME/.cargo/env"
-export CARGO_TARGET_DIR=/tmp/cargo_target
-
+complete -F _command doas
 bind 'set completion-ignore-case on'
 bind 'set mark-symlinked-directories on'
+
+. "$HOME/.env"
+. "$HOME/.cargo/env"
+export PATH="$HOME/.local/bin:$PATH"
+
+command -v tmux > /dev/null && test ! $TMUX && tmux -f /dev/null new-session -As main && echo "Ctrl-C to stay" && sleep 3 && exit

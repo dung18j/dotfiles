@@ -1,5 +1,5 @@
 vim.api.nvim_set_keymap('n', '<space>n', ':NvimTreeToggle<CR>', { noremap = true })
-vim.api.nvim_set_keymap('n', '<space>r', ':NvimTreeRefresh<CR>', { noremap = true })
+--vim.api.nvim_set_keymap('n', '<space>r', ':NvimTreeRefresh<CR>', { noremap = true })
 
 require("nvim-tree").setup {
     auto_reload_on_write = true,

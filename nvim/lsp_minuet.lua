@@ -1,0 +1,131 @@
+-- local gemini_prompt = require('minuet.config').default_system_prefix_first.prompt
+-- 
+-- local gemini_few_shots = {}
+-- 
+-- gemini_few_shots[1] = {
+--   role = 'user',
+--   content = [[
+-- # language: javascript
+-- <contextBeforeCursor>
+-- function transformData(data, options) {
+--     const result = [];
+--     for (let item of data) {
+--         <cursorPosition>
+-- <contextAfterCursor>
+--     return result;
+-- }
+-- 
+-- const processedData = transformData(rawData, {
+--     uppercase: true,
+--     removeSpaces: false
+-- });]],
+-- }
+-- 
+-- local gemini_chat_input_template =
+-- '{{{language}}}\n{{{tab}}}\n<contextBeforeCursor>\n{{{context_before_cursor}}}<cursorPosition>\n<contextAfterCursor>\n{{{context_after_cursor}}}'
+-- 
+-- 
+-- gemini_few_shots[2] = require('minuet.config').default_few_shots[2]
+-- 
+-- require('minuet').setup {
+--   provider = 'openai_fim_compatible',
+--   n_completions = 1, -- recommend for local model for resource saving
+--   -- I recommend beginning with a small context window size and incrementally
+--   -- expanding it, depending on your local computing power. A context window
+--   -- of 512, serves as an good starting point to estimate your computing
+--   -- power. Once you have a reliable estimate of your local computing power,
+--   -- you should adjust the context window to a larger value.
+--   context_window = 512,
+--   virtualtext = {
+--     auto_trigger_ft = { 'c', 'c++' },
+--     keymap = {
+--       -- accept whole completion
+--       accept = '<A-a>',
+--       -- accept one line
+--       accept_line = nil,
+--       -- accept n lines (prompts for number)
+--       -- e.g. "A-z 2 CR" will accept 2 lines
+--       accept_n_lines = nil,
+--       -- Cycle to prev completion item, or manually invoke completion
+--       prev = '<A-[>',
+--       -- Cycle to next completion item, or manually invoke completion
+--       next = '<A-]>',
+--       dismiss = '<A-e>',
+--     },
+--   },
+--   provider_options = {
+--     openai_fim_compatible = {
+--       -- For Windows users, TERM may not be present in environment variables.
+--       -- Consider using APPDATA instead.
+--       api_key = 'TERM',
+--       name = 'Ollama',
+--       end_point = 'http://localhost:11434/v1/completions',
+--       model = 'qwen2.5-coder:0.5b',
+--       system = {
+--         prompt = gemini_prompt,
+--       },
+--       few_shots = gemini_few_shots,
+--       chat_input = {
+--         template = gemini_chat_input_template,
+--       },
+--       optional = {
+--         max_tokens = 56,
+--         top_p = 0.9,
+--       },
+--     },
+--   },
+-- }
+-- 
+-- -- require('minuet').setup {
+-- --   provider = 'gemini',
+-- --   provider_options = {
+-- --     gemini = {
+-- --     },
+-- --   },
+-- -- }
+-- 
+-- -- require('minuet').setup {
+-- --   provider = 'gemini',
+-- --   virtualtext = {
+-- --     auto_trigger_ft = {'c', 'c++'},
+-- --     keymap = {
+-- --       -- accept whole completion
+-- --       accept = '<A-a>',
+-- --       -- accept one line
+-- --       accept_line = nil,
+-- --       -- accept n lines (prompts for number)
+-- --       -- e.g. "A-z 2 CR" will accept 2 lines
+-- --       accept_n_lines = nil,
+-- --       -- Cycle to prev completion item, or manually invoke completion
+-- --       prev = '<A-[>',
+-- --       -- Cycle to next completion item, or manually invoke completion
+-- --       next = '<A-]>',
+-- --       dismiss = '<A-e>',
+-- --     },
+-- --   },
+-- --   provider_options = {
+-- --     gemini = {
+-- --       model = 'gemini-2.0-flash',
+-- --       stream = true,
+-- --       api_key = 'GEMINI_API_KEY',
+-- --       end_point = 'https://generativelanguage.googleapis.com/v1beta/models',
+-- --       system = {
+-- --         prompt = gemini_prompt,
+-- --       },
+-- --       few_shots = gemini_few_shots,
+-- --       chat_input = {
+-- --         template = gemini_chat_input_template,
+-- --       },
+-- --       optional = {
+-- --         generationConfig = {
+-- --           maxOutputTokens = 256,
+-- --           -- When using `gemini-2.5-flash`, it is recommended to entirely
+-- --           -- disable thinking for faster completion retrieval.
+-- --           thinkingConfig = {
+-- --             thinkingBudget = 0,
+-- --           },
+-- --         },
+-- --       },
+-- --     },
+-- --   }
+-- -- }

@@ -1,9 +1,6 @@
 [submodule "nvim/pack/all/start/FTerm.nvim"]
 	path = nvim/pack/all/start/FTerm.nvim
 	url = https://github.com/numToStr/FTerm.nvim
-[submodule "nvim/pack/all/start/nvim-lspconfig"]
-	path = nvim/pack/all/start/nvim-lspconfig
-	url = https://github.com/neovim/nvim-lspconfig
 [submodule "nvim/pack/all/start/cmp-nvim-lsp"]
 	path = nvim/pack/all/start/cmp-nvim-lsp
 	url = https://github.com/hrsh7th/cmp-nvim-lsp
@@ -49,3 +46,12 @@
 [submodule "nvim/pack/all/start/vimtex"]
 	path = nvim/pack/all/start/vimtex
 	url = https://github.com/lervag/vimtex
+[submodule "nvim/pack/all/start/nimuet-ai"]
+	path = nvim/pack/all/start/nimuet-ai
+	url = https://github.com/milanglacier/minuet-ai.nvim.git
+[submodule "nvim/pack/all/start/--force"]
+	path = nvim/pack/all/start/--force
+	url = https://github.com/neovim/nvim-lspconfig.git
+[submodule "nvim/pack/all/start/nvim-lspconfig"]
+	path = nvim/pack/all/start/nvim-lspconfig
+	url = https://github.com/neovim/nvim-lspconfig.git
