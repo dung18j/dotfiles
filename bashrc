@@ -118,5 +118,6 @@ bind 'set mark-symlinked-directories on'
 . "$HOME/.env"
 . "$HOME/.cargo/env"
 export PATH="$HOME/.local/bin:$PATH"
+export EDITOR=nvim
 
-command -v tmux > /dev/null && test ! $TMUX && tmux -f /dev/null new-session -As main && echo "Ctrl-C to stay" && sleep 3 && exit
+test ! $TMUX && tmux new-session -As main && exit

@@ -1,9 +1,0 @@
-[Desktop Entry]
-Version=1.0
-Type=Application
-Name=Dark Switcher
-Comment=monitor system color scheme and change config to that scheme
-Exec=sh -c 'dconf watch /org/gnome/desktop/interface/color-scheme | xargs -I '{}' sed -i "s#themes/.*.toml#themes/{}.toml#g" ~/.config/alacritty/alacritty.toml'
-
-Categories=Utility;
-StartupNotify=false

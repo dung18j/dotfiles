@@ -48,7 +48,7 @@ semantic_escape_chars = ",│`|:\"' ()[]{}<>\t"
 [window]
 decorations = "full"
 dynamic_padding = true
-opacity = 0.9
+opacity = 1
 startup_mode = "Windowed"
 
 [window.class]

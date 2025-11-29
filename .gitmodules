@@ -55,3 +55,9 @@
 [submodule "nvim/pack/all/start/nvim-lspconfig"]
 	path = nvim/pack/all/start/nvim-lspconfig
 	url = https://github.com/neovim/nvim-lspconfig.git
+[submodule "nvim/pack/all/start/im-select.nvim"]
+	path = nvim/pack/all/start/im-select.nvim
+	url = https://github.com/keaising/im-select.nvim
+[submodule "nvim/pack/all/start/telescope.nvim"]
+	path = nvim/pack/all/start/telescope.nvim
+	url = https://github.com/nvim-telescope/telescope.nvim
