@@ -1,34 +1,36 @@
 vim.cmd("helptags ALL")
--- vim.cmd("set ls=1")
 vim.cmd("set clipboard=unnamedplus")
-vim.cmd("set notermguicolors")
 
 -- Monochrome syntax
 vim.cmd [[
-    hi Normal       ctermfg=none ctermbg=none
-    hi Comment      cterm=italic ctermfg=blue ctermbg=none
-    hi LspInlayHint cterm=italic ctermfg=blue ctermbg=none
-    hi Statement    cterm=none
-    hi Special      cterm=none
-    hi Type         cterm=none
-    hi Function     ctermfg=none ctermbg=none
-    hi Identifier   ctermfg=none ctermbg=none
-    hi Constant     ctermfg=none ctermbg=none
-    hi PreProc      ctermfg=none ctermbg=none
+    set notermguicolors
 
+    hi Normal       cterm=none ctermfg=none ctermbg=none
+    hi Statement    cterm=none ctermbg=none ctermfg=none
+    hi Special      cterm=none ctermbg=none ctermfg=none
+    hi Type         cterm=none ctermbg=none ctermfg=none
+    hi DiffAdd      cterm=none ctermfg=none ctermbg=none
+    hi DiffChange   cterm=none ctermbg=none ctermfg=none
+    hi DiffDelete   cterm=none ctermbg=none ctermfg=none
+    hi DiffText     cterm=none ctermbg=none ctermfg=none
+
+    hi Comment      cterm=none ctermbg=none ctermfg=blue
+    hi LspInlayHint cterm=none ctermbg=none ctermfg=blue
+
+    hi Function     cterm=bold ctermfg=none ctermbg=none
+    hi Identifier   cterm=bold ctermfg=none ctermbg=none
+    hi Constant     cterm=bold ctermfg=none ctermbg=none
+    hi PreProc      cterm=bold ctermfg=none ctermbg=none
+
+    hi Visual       cterm=none ctermfg=black ctermbg=grey
+    hi CursorLine   cterm=underline ctermfg=none ctermbg=none
+    hi CursorLineNr cterm=underline ctermfg=none ctermbg=none
+    
     hi Pmenu        ctermfg=0 ctermbg=225
     hi PmenuSel     ctermfg=0 ctermbg=7
     hi PmenuSbar    ctermbg=248
     hi PmenuThumb   ctermbg=0
 
-    hi SignColumn   ctermbg=none
-    hi Visual       cterm=none ctermfg=black ctermbg=grey
-    hi CursorLine   cterm=none ctermfg=black ctermbg=darkgray
-    hi CursorLineNr cterm=none ctermfg=black ctermbg=darkgray
-    hi DiffAdd      ctermbg=none
-    hi DiffChange   ctermbg=none
-    hi DiffDelete   ctermbg=none
-    hi DiffText     ctermbg=none
 ]]
 
 vim.g.mapleader = ' '
@@ -63,8 +65,6 @@ local map = vim.api.nvim_set_keymap
 map('n', 'q:', '<nop>', { noremap = true })
 map('n', 'q', '<nop>', { noremap = true })
 map('n', 'Q', 'q', { noremap = true })
-
-vim.g.indentLine_char_list = { '▏', '╎', '┆', '┊' }
 
 require 'FTerm'.setup({
   cmd        = vim.o.shell,
@@ -113,6 +113,41 @@ vim.keymap.set('n', '<leader>fg', builtin.live_grep, { desc = 'Telescope live gr
 vim.keymap.set('n', '<leader>fb', builtin.buffers, { desc = 'Telescope buffers' })
 vim.keymap.set('n', '<leader>fh', builtin.help_tags, { desc = 'Telescope help tags' })
 
+require('im_select').setup({
+  -- IM will be set to `default_im_select` in `normal` mode
+  -- For Windows/WSL, default: "1033", aka: English US Keyboard
+  -- For macOS, default: "com.apple.keylayout.ABC", aka: US
+  -- For Linux, default:
+  --               "keyboard-us" for Fcitx5
+  --               "1" for Fcitx
+  --               "xkb:us::eng" for ibus
+  -- You can use `im-select` or `fcitx5-remote -n` to get the IM's name
+  default_im_select       = "keyboard-us",
+
+  -- Can be binary's name, binary's full path, or a table, e.g. 'im-select',
+  -- '/usr/local/bin/im-select' for binary without extra arguments,
+  -- or { "AIMSwitcher.exe", "--imm" } for binary need extra arguments to work.
+  -- For Windows/WSL, default: "im-select.exe"
+  -- For macOS, default: "macism"
+  -- For Linux, default: "fcitx5-remote" or "fcitx-remote" or "ibus"
+  default_command         = "fcitx5-remote",
+
+  -- Restore the default input method state when the following events are triggered
+  -- "VimEnter" and "FocusGained" were removed for causing problems, add it by your needs
+  set_default_events      = { "InsertLeave", "CmdlineLeave" },
+
+  -- Restore the previous used input method state when the following events
+  -- are triggered, if you don't want to restore previous used im in Insert mode,
+  -- e.g. deprecated `disable_auto_restore = 1`, just let it empty
+  -- as `set_previous_events = {}`
+  set_previous_events     = { "InsertEnter" },
+
+  -- Show notification about how to install executable binary when binary missed
+  keep_quiet_on_no_binary = false,
+
+  -- Async run `default_command` to switch IM or not
+  async_switch_im         = true
+})
 
 --- Language Server
 ---
