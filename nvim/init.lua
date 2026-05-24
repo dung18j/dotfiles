@@ -1,3 +1,39 @@
+vim.pack.add({
+  --"https://github.com/nvim-lua/plenary.nvim",
+  --"https://github.com/Mofiqul/dracula.nvim",
+  --{ src = "https://github.com/nvim-treesitter/nvim-treesitter", version = 'main' },
+  --"https://github.com/nvim-treesitter/nvim-treesitter-context",
+  --"https://github.com/neovim/nvim-lspconfig",
+  --"https://github.com/ibhagwan/fzf-lua",
+  --"https://github.com/karb94/neoscroll.nvim",
+  --"https://github.com/ruifm/gitlinker.nvim",
+  --"https://github.com/tpope/vim-fugitive",
+
+  "https://github.com/numToStr/FTerm.nvim",
+  "https://github.com/hrsh7th/cmp-nvim-lsp",
+  "https://github.com/hrsh7th/cmp-vsnip",
+  "https://github.com/hrsh7th/cmp-path",
+  "https://github.com/hrsh7th/cmp-buffer",
+  "https://github.com/hrsh7th/vim-vsnip",
+  "https://github.com/saecki/crates.nvim",
+  "https://github.com/rust-lang/rust.vim",
+  "https://github.com/nvim-lua/popup.nvim",
+  "https://github.com/kyazdani42/nvim-web-devicons",
+  "https://github.com/kyazdani42/nvim-tree.lua",
+  "https://github.com/mhinz/vim-signify",
+  "https://github.com/hrsh7th/nvim-cmp",
+  "https://github.com/nvim-lua/plenary.nvim",
+  "https://github.com/windwp/nvim-autopairs",
+  "https://github.com/lervag/vimtex",
+  "https://github.com/milanglacier/minuet-ai.nvim.git",
+  "https://github.com/neovim/nvim-lspconfig.git",
+  "https://github.com/neovim/nvim-lspconfig.git",
+  "https://github.com/keaising/im-select.nvim",
+  "https://github.com/nvim-telescope/telescope.nvim",
+  "https://github.com/lewis6991/gitsigns.nvim.git",
+
+})
+
 vim.cmd("helptags ALL")
 vim.cmd("set clipboard=unnamedplus")
 
