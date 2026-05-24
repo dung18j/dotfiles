@@ -111,13 +111,16 @@ if ! shopt -oq posix; then
     . /etc/bash_completion
   fi
 fi
+
+# BEGIN USER CONFIG
+export EDITOR=nvim
 complete -F _command doas
 bind 'set completion-ignore-case on'
 bind 'set mark-symlinked-directories on'
 
-. "$HOME/.env"
-. "$HOME/.cargo/env"
-export PATH="$HOME/.local/bin:$PATH"
-export EDITOR=nvim
+# END USER CONFIG
 
-test ! $TMUX && tmux new-session -As main && exit
+export PATH="$PATH:/opt/nvim-linux-x86_64/bin"
+
+# opencode
+export PATH=/home/dun/.opencode/bin:$PATH
