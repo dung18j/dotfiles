@@ -1,3 +1,7 @@
+-- Enable clipboard
+-- vim.cmd("set clipboard=unnamedplus")
+vim.opt.clipboard = 'unnamedplus'
+
 vim.pack.add({
   --"https://github.com/nvim-lua/plenary.nvim",
   --"https://github.com/Mofiqul/dracula.nvim",
@@ -34,10 +38,7 @@ vim.pack.add({
 
 })
 
-vim.cmd("helptags ALL")
-vim.cmd("set clipboard=unnamedplus")
-
--- Monochrome syntax
+-- Monochrome color
 vim.cmd [[
     set notermguicolors
 
@@ -69,9 +70,6 @@ vim.cmd [[
 
 ]]
 
-vim.g.mapleader = ' '
-vim.opt.winborder = "rounded"
-
 -- Nicer UI settings
 vim.opt.cursorline = true
 vim.opt.relativenumber = true
@@ -85,22 +83,58 @@ vim.opt.shiftwidth = 4
 vim.opt.shiftround = true
 vim.opt.expandtab = true
 vim.opt.scrolloff = 3
+vim.opt.winborder = "rounded"
 
 -- Performance
 vim.opt.lazyredraw = true;
 vim.opt.shadafile = "NONE"
 
--- Enable mouse
-vim.opt.mouse = 'a';
+--helptags
+vim.cmd("helptags ALL")
 
--- Enable clipboard
-vim.opt.clipboard = 'unnamedplus'
+-- Key mapping
+vim.g.mapleader = ' '
 
--- Some keymap to get rid of mispress
 local map = vim.api.nvim_set_keymap
 map('n', 'q:', '<nop>', { noremap = true })
 map('n', 'q', '<nop>', { noremap = true })
 map('n', 'Q', 'q', { noremap = true })
+
+local opts = { noremap = true, silent = true }
+map('n', '<C-a>', '<CMD>lua require("FTerm").toggle()<CR>', opts)
+map('t', '<C-a>', '<C-\\><C-n><CMD>lua require("FTerm").toggle()<CR>', opts)
+
+map('n', 'gD', '<cmd>lua vim.lsp.buf.declaration()<CR>', opts)
+map('n', 'gd', '<cmd>lua vim.lsp.buf.definition()<CR>', opts)
+map('n', 'gr', '<cmd>lua vim.lsp.buf.references()<CR>', opts)
+map('n', 'gi', '<cmd>lua vim.lsp.buf.implementation()<CR>', opts)
+map('n', 'g0', '<cmd>lua vim.lsp.buf.document_symbol()<CR>', opts)
+map('n', 'gW', '<cmd>lua vim.lsp.buf.workspace_symbol()<CR>', opts)
+map('n', 'ga', '<cmd>lua vim.lsp.buf.code_action()<CR>', opts)
+map('n', 'gf', '<cmd>lua vim.lsp.buf.format()<CR>', opts)
+map('n', 'g[', '<cmd>lua vim.diagnostic.goto_prev()<CR>', opts)
+map('n', 'g]', '<cmd>lua vim.diagnostic.goto_next()<CR>', opts)
+map('n', 'gk', '<cmd>lua vim.lsp.buf.signature_help()<CR>', opts)
+map('n', 'K', '<cmd>lua vim.lsp.buf.hover()<CR>', opts)
+map('n', 'gh', '<cmd>lua vim.lsp.buf.hover()<CR>', opts)
+
+map('n', '<leader>r', '<cmd>lua vim.lsp.buf.rename()<CR>', opts)
+map('n', '<leader>a', '<cmd>lua vim.lsp.buf.code_action()<CR>', opts)
+map('n', '<space>e', '<cmd>lua vim.diagnostic.open_float()<CR>', opts)
+map('n', '<space>q', '<cmd>lua vim.diagnostic.setloclist()<CR>', opts)
+-- vim.keymap.set('i', '<c-space>', function() vim.lsp.completion.get() end)
+-- vim.keymap.set('i', '<s-tab>', function() vim.lsp.completion.get() end)
+
+local builtin = require('telescope.builtin')
+vim.keymap.set('n', '<leader>ff', builtin.find_files, { desc = 'Telescope find files' })
+vim.keymap.set('n', '<leader>fg', builtin.live_grep, { desc = 'Telescope live grep' })
+vim.keymap.set('n', '<leader>fb', builtin.buffers, { desc = 'Telescope buffers' })
+vim.keymap.set('n', '<leader>fh', builtin.help_tags, { desc = 'Telescope help tags' })
+
+
+
+-- Enable mouse
+vim.opt.mouse = 'a';
 
 require 'FTerm'.setup({
   cmd        = vim.o.shell,
@@ -111,30 +145,6 @@ require 'FTerm'.setup({
   },
 })
 
-local opts = { noremap = true, silent = true }
-map('n', '<C-a>', '<CMD>lua require("FTerm").toggle()<CR>', opts)
-map('t', '<C-a>', '<C-\\><C-n><CMD>lua require("FTerm").toggle()<CR>', opts)
-
-vim.keymap.set('n', 'gD', '<cmd>lua vim.lsp.buf.declaration()<CR>', opts)
-vim.keymap.set('n', 'gd', '<cmd>lua vim.lsp.buf.definition()<CR>', opts)
-vim.keymap.set('n', 'gr', '<cmd>lua vim.lsp.buf.references()<CR>', opts)
-vim.keymap.set('n', 'gi', '<cmd>lua vim.lsp.buf.implementation()<CR>', opts)
-vim.keymap.set('n', 'g0', '<cmd>lua vim.lsp.buf.document_symbol()<CR>', opts)
-vim.keymap.set('n', 'gW', '<cmd>lua vim.lsp.buf.workspace_symbol()<CR>', opts)
-vim.keymap.set('n', 'ga', '<cmd>lua vim.lsp.buf.code_action()<CR>', opts)
-vim.keymap.set('n', 'gf', '<cmd>lua vim.lsp.buf.format()<CR>', opts)
-vim.keymap.set('n', 'g[', '<cmd>lua vim.diagnostic.goto_prev()<CR>', opts)
-vim.keymap.set('n', 'g]', '<cmd>lua vim.diagnostic.goto_next()<CR>', opts)
-vim.keymap.set('n', 'gk', '<cmd>lua vim.lsp.buf.signature_help()<CR>', opts)
-vim.keymap.set('n', 'K', '<cmd>lua vim.lsp.buf.hover()<CR>', opts)
-vim.keymap.set('n', 'gh', '<cmd>lua vim.lsp.buf.hover()<CR>', opts)
-
-vim.keymap.set('n', '<leader>r', '<cmd>lua vim.lsp.buf.rename()<CR>', opts)
-vim.keymap.set('n', '<leader>a', '<cmd>lua vim.lsp.buf.code_action()<CR>', opts)
-vim.keymap.set('n', '<space>e', '<cmd>lua vim.diagnostic.open_float()<CR>', opts)
-vim.keymap.set('n', '<space>q', '<cmd>lua vim.diagnostic.setloclist()<CR>', opts)
--- vim.keymap.set('i', '<c-space>', function() vim.lsp.completion.get() end)
--- vim.keymap.set('i', '<s-tab>', function() vim.lsp.completion.get() end)
 
 vim.cmd("autocmd FileType * setlocal foldmethod=manual")
 vim.diagnostic.config({
@@ -143,11 +153,6 @@ vim.diagnostic.config({
 })
 vim.lsp.inlay_hint.enable(true)
 
-local builtin = require('telescope.builtin')
-vim.keymap.set('n', '<leader>ff', builtin.find_files, { desc = 'Telescope find files' })
-vim.keymap.set('n', '<leader>fg', builtin.live_grep, { desc = 'Telescope live grep' })
-vim.keymap.set('n', '<leader>fb', builtin.buffers, { desc = 'Telescope buffers' })
-vim.keymap.set('n', '<leader>fh', builtin.help_tags, { desc = 'Telescope help tags' })
 
 require('im_select').setup({
   -- IM will be set to `default_im_select` in `normal` mode
@@ -571,10 +576,10 @@ require("nvim-tree").setup {
     update_root = false,
     ignore_list = {},
   },
-  system_open = {
-    cmd = "",
-    args = {},
-  },
+  --system_open = {
+  --  cmd = "",
+  --  args = {},
+  --},
   diagnostics = {
     enable = false,
     show_on_dirs = false,

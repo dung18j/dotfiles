@@ -15,9 +15,8 @@ cp -r "$DOTFILES_DIR/nvim/" "$CONFIG_DIR/"
 cp -r "$DOTFILES_DIR/tmux/" "$CONFIG_DIR/"
 
 
-echo "export EDITOR=nvim" >> $HOME/.bashrc
-echo "complete -F _command doas" >> $HOME/.bashrc
-echo "bind 'set completion-ignore-case on'" >> $HOME/.bashrc
-echo "bind 'set mark-symlinked-directories on'" >> $HOME/.bashrc
+while IFS= read -r line; do
+  grep -qF "$line" "$HOME/.bashrc" || echo "$line" >> "$HOME/.bashrc"
+done < "$DOTFILES_DIR/bashrc_append"
 
 echo "Dotfiles installed."
