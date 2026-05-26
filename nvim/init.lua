@@ -233,7 +233,7 @@ vim.lsp.config.clangd = {
   },
   cmd = { "clangd", "--completion-style=detailed" },
   filetypes = { "c", "cpp", "objc", "objcpp", "cuda" },
-  root_markers = { ".clangd", ".clang-tidy", ".clang-format", "compile_commands.json", "compile_flags.txt", "configure.ac", ".git" },
+  root_dir = { ".clangd", ".clang-tidy", ".clang-format", "compile_commands.json", "compile_flags.txt", "configure.ac", ".git" },
   settings = {
   }
 }
@@ -303,10 +303,12 @@ vim.lsp.config['rust-analyzer'] = {
     local cargo_workspace_root
 
     if cargo_crate_dir == nil then
-      on_dir(
-        vim.fs.root(fname, { 'rust-project.json' })
-        or vim.fs.dirname(vim.fs.find('.git', { path = fname, upward = true })[1])
-      )
+      local root = vim.fs.root(fname, { 'rust-project.json' })
+      if not root then
+        local git_dir = vim.fs.find('.git', { path = fname, upward = true })[1]
+        root = git_dir and vim.fs.dirname(git_dir) or vim.fn.getcwd()
+      end
+      on_dir(root)
       return
     end
 
@@ -334,6 +336,7 @@ vim.lsp.config['rust-analyzer'] = {
         vim.schedule(function()
           vim.notify(('[rust_analyzer] cmd failed with code %d: %s\n%s'):format(output.code, cmd, output.stderr))
         end)
+        on_dir(cargo_crate_dir)
       end
     end)
   end,
