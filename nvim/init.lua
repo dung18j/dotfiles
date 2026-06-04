@@ -3,16 +3,6 @@
 vim.opt.clipboard = 'unnamedplus'
 
 vim.pack.add({
-  --"https://github.com/nvim-lua/plenary.nvim",
-  --"https://github.com/Mofiqul/dracula.nvim",
-  --{ src = "https://github.com/nvim-treesitter/nvim-treesitter", version = 'main' },
-  --"https://github.com/nvim-treesitter/nvim-treesitter-context",
-  --"https://github.com/neovim/nvim-lspconfig",
-  --"https://github.com/ibhagwan/fzf-lua",
-  --"https://github.com/karb94/neoscroll.nvim",
-  --"https://github.com/ruifm/gitlinker.nvim",
-  --"https://github.com/tpope/vim-fugitive",
-
   "https://github.com/numToStr/FTerm.nvim",
   "https://github.com/hrsh7th/cmp-nvim-lsp",
   "https://github.com/hrsh7th/cmp-vsnip",
@@ -32,7 +22,6 @@ vim.pack.add({
   "https://github.com/milanglacier/minuet-ai.nvim.git",
   "https://github.com/neovim/nvim-lspconfig.git",
   "https://github.com/neovim/nvim-lspconfig.git",
-  "https://github.com/keaising/im-select.nvim",
   "https://github.com/nvim-telescope/telescope.nvim",
   "https://github.com/lewis6991/gitsigns.nvim.git",
 
@@ -153,42 +142,6 @@ vim.diagnostic.config({
 })
 vim.lsp.inlay_hint.enable(true)
 
-
-require('im_select').setup({
-  -- IM will be set to `default_im_select` in `normal` mode
-  -- For Windows/WSL, default: "1033", aka: English US Keyboard
-  -- For macOS, default: "com.apple.keylayout.ABC", aka: US
-  -- For Linux, default:
-  --               "keyboard-us" for Fcitx5
-  --               "1" for Fcitx
-  --               "xkb:us::eng" for ibus
-  -- You can use `im-select` or `fcitx5-remote -n` to get the IM's name
-  default_im_select       = "keyboard-us",
-
-  -- Can be binary's name, binary's full path, or a table, e.g. 'im-select',
-  -- '/usr/local/bin/im-select' for binary without extra arguments,
-  -- or { "AIMSwitcher.exe", "--imm" } for binary need extra arguments to work.
-  -- For Windows/WSL, default: "im-select.exe"
-  -- For macOS, default: "macism"
-  -- For Linux, default: "fcitx5-remote" or "fcitx-remote" or "ibus"
-  default_command         = "fcitx5-remote",
-
-  -- Restore the default input method state when the following events are triggered
-  -- "VimEnter" and "FocusGained" were removed for causing problems, add it by your needs
-  set_default_events      = { "InsertLeave", "CmdlineLeave" },
-
-  -- Restore the previous used input method state when the following events
-  -- are triggered, if you don't want to restore previous used im in Insert mode,
-  -- e.g. deprecated `disable_auto_restore = 1`, just let it empty
-  -- as `set_previous_events = {}`
-  set_previous_events     = { "InsertEnter" },
-
-  -- Show notification about how to install executable binary when binary missed
-  keep_quiet_on_no_binary = false,
-
-  -- Async run `default_command` to switch IM or not
-  async_switch_im         = true
-})
 
 --- Language Server
 ---
