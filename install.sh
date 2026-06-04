@@ -4,8 +4,6 @@ set -euo pipefail
 DOTFILES_DIR="$(cd "$(dirname "$0")" && pwd)"
 CONFIG_DIR="$HOME/.config"
 
-echo "DOTFILES_DIR=$DOTFILES_DIR"
-
 mkdir -p "$CONFIG_DIR/git"
 mkdir -p "$CONFIG_DIR/nvim"
 mkdir -p "$CONFIG_DIR/tmux"

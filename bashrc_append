@@ -2,5 +2,4 @@ export EDITOR=nvim
 complete -F _command doas
 bind 'set completion-ignore-case on'
 bind 'set mark-symlinked-directories on'
-export PATH="$PATH:/opt/nvim-linux-x86_64/bin"
-export PATH=/home/dun/.opencode/bin:$PATH
+export PATH=$HOME/.cargo/bin:$HOME/.opencode/bin:/opt/nvim-linux-x86_64/bin:$PATH
