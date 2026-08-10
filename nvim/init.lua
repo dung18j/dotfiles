@@ -172,7 +172,6 @@ vim.lsp.config.clangd = {
       implementation = {
         dynamicRegistration = true,
         linkSupport = true,
-
       },
       codeLens = {
         dynamicRegistration = true,
@@ -181,14 +180,11 @@ vim.lsp.config.clangd = {
         dynamicRegistration = true,
       }
     },
-
-
   },
   cmd = { "clangd", "--completion-style=detailed" },
-  filetypes = { "c", "cpp", "objc", "objcpp", "cuda" },
-  root_dir = { ".clangd", ".clang-tidy", ".clang-format", "compile_commands.json", "compile_flags.txt", "configure.ac", ".git" },
-  settings = {
-  }
+  filetypes = { "c", "cpp", "objc", "objcpp", "cuda", "cuh" },
+  root_markers = { ".clangd", ".clang-tidy", ".clang-format", "compile_commands.json", "compile_flags.txt", "configure.ac", ".git" },
+  settings = {},
 }
 
 vim.lsp.enable('clangd')
