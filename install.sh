@@ -15,6 +15,7 @@ cp -r "$DOTFILES_DIR/nvim/" "$CONFIG_DIR/"
 cp -r "$DOTFILES_DIR/tmux/" "$CONFIG_DIR/"
 cp -r "$DOTFILES_DIR/niri/" "$CONFIG_DIR/"
 cp -r "$DOTFILES_DIR/waybar/" "$CONFIG_DIR/"
+cp -r "$DOTFILES_DIR/swaylock/" "$CONFIG_DIR/"
 
 
 while IFS= read -r line; do

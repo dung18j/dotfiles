@@ -3,4 +3,3 @@ complete -F _command doas
 bind 'set completion-ignore-case on'
 bind 'set mark-symlinked-directories on'
 export PATH=$HOME/.cargo/bin:$HOME/.opencode/bin:/opt/nvim-linux-x86_64/bin:$PATH
-swaybg --image $HOME/*wallpaper*.png &

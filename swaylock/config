@@ -1,0 +1,10 @@
+ignore-empty-password
+image=/home/dun/.wallpaper.png
+
+# Scaling mode (fill, fit, stretch, center, tile)
+scaling=fill
+
+# Optional visual tweaks
+color=000000
+show-failed-attempts
+indicator
