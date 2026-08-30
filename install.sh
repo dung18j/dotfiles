@@ -7,15 +7,10 @@ CONFIG_DIR="$HOME/.config"
 mkdir -p "$CONFIG_DIR/git"
 mkdir -p "$CONFIG_DIR/nvim"
 mkdir -p "$CONFIG_DIR/tmux"
-mkdir -p "$CONFIG_DIR/niri"
-mkdir -p "$CONFIG_DIR/waybar"
 
 cp -r "$DOTFILES_DIR/git/" "$CONFIG_DIR/"
 cp -r "$DOTFILES_DIR/nvim/" "$CONFIG_DIR/"
 cp -r "$DOTFILES_DIR/tmux/" "$CONFIG_DIR/"
-cp -r "$DOTFILES_DIR/niri/" "$CONFIG_DIR/"
-cp -r "$DOTFILES_DIR/waybar/" "$CONFIG_DIR/"
-cp -r "$DOTFILES_DIR/swaylock/" "$CONFIG_DIR/"
 
 
 while IFS= read -r line; do
